@@ -1,0 +1,90 @@
+.projects-section {
+  padding: 4rem 2rem;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.projects-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+/* CONTENEDOR DE TARJETAS */
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* TARJETA INDIVIDUAL */
+.project-card {
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  margin: 0.5rem 0;
+  color: #444;
+}
+
+.project-card button {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: #00adb5;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.project-card button:hover {
+  text-decoration: underline;
+}
+
+/* DETALLES EXPANDIBLES CON TRANSICIÓN */
+.project-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.3s ease;
+  padding-top: 0; /* Evita salto cuando se cierra */
+}
+
+.project-details.expanded {
+  max-height: 500px;
+  opacity: 1;
+  padding-top: 1rem;
+}
+
+.project-details a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #007c84;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.project-details a:hover {
+  text-decoration: underline;
+}
