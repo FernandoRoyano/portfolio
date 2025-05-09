@@ -35,9 +35,7 @@ function ProjectCard({ project }) {
             <p>
               <strong>Tecnologías:</strong> {project.technologies.join(', ')}
             </p>
-            <a href={project.link} target="_blank" rel="noopener noreferrer">
-              Ver en GitHub / Demo
-            </a>
+
           </>
         )}
       </div>
