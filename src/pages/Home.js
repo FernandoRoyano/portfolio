@@ -2,17 +2,15 @@ import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './Home.css';
 
-
 function Home() {
   return (
     <section className="home">
-      {/* ✅ Avatar con next/image */}
+      {/* ✅ Avatar ilustrado */}
       <img
-  src="/images/avatar.png"
-  alt="Fernando Royano"
-  className="avatar"
-/>
-
+        src="/images/avatar.png"
+        alt="Fernando Royano"
+        className="avatar"
+      />
 
       <h1>Hola, soy Fernando</h1>
 
@@ -40,6 +38,18 @@ function Home() {
         </div>
       </div>
 
+      <div className="soft-skills">
+  <h3>🧠 Habilidades blandas que marcan la diferencia</h3>
+  <ul>
+    <li>🔍 Visión estratégica de negocio y producto</li>
+    <li>🧩 Diseño de sistemas, procesos y flujos digitales</li>
+    <li>📣 Comunicación clara y capacidad de venta</li>
+    <li>🎯 Enfoque en conversión, captación y escalabilidad</li>
+    <li>🤝 Trabajo colaborativo con perfiles técnicos y no técnicos</li>
+  </ul>
+</div>
+
+
       <div className="home-buttons">
         <a href="https://github.com/FernandoRoyano" target="_blank" rel="noopener noreferrer">
           <FaGithub /> GitHub
@@ -47,8 +57,13 @@ function Home() {
         <a href="https://www.linkedin.com/in/fernando-royano-cabrero-dev/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin /> LinkedIn
         </a>
-        <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
-          📄 Descargar CV
+        <a
+          href="/cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+        >
+          📄 Ver / Descargar CV
         </a>
       </div>
     </section>
