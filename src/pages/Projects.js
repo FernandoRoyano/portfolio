@@ -34,9 +34,7 @@ function ProjectCard({ project, index }) {
         <p>
           <strong>{t('projects.tech')}:</strong> {project.technologies.join(', ')}
         </p>
-        <a href={project.link} target="_blank" rel="noopener noreferrer">
-          {t('projects.link')}
-        </a>
+
       </div>
     </div>
   );
