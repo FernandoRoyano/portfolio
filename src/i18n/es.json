@@ -1,0 +1,69 @@
+{
+  "home": {
+    "title": "Hola, soy Fernando",
+    "headline": "Product Builder & Front-End Developer",
+    "sub": "Llevo ideas digitales desde el concepto hasta el lanzamiento.",
+    "intro": "Combino diseño, desarrollo y visión de negocio para dar forma a proyectos web con impacto real.",
+    "downloadCV": "Ver / Descargar CV",
+    "softSkillsTitle": "🧠 Habilidades blandas que marcan la diferencia",
+    "skills": [
+      "🔍 Visión estratégica de negocio y producto",
+      "🧩 Diseño de sistemas, procesos y flujos digitales",
+      "📣 Comunicación clara y capacidad de venta",
+      "🎯 Enfoque en conversión, captación y escalabilidad",
+      "🤝 Trabajo colaborativo con perfiles técnicos y no técnicos"
+    ],
+    "values": {
+      "collaborate": "Colaboro",
+      "collaborateText": "Me gusta trabajar con personas que tienen una idea y ayudarles a hacerla realidad.",
+      "product": "Pienso en producto",
+      "productText": "No solo programo. Me involucro en la experiencia, el valor y el enfoque estratégico.",
+      "ai": "Construyo con IA",
+      "aiText": "Uso herramientas modernas e inteligencia artificial para acelerar y mejorar el desarrollo."
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "show": "Ver más ▼",
+    "hide": "Ocultar detalles ▲",
+    "link": "Ver en GitHub / Demo",
+    "tech": "Tecnologías",
+    "items": [
+      {
+        "name": "Parent Fit",
+        "shortDescription": "Academia online para padres y madres con poco tiempo.",
+        "fullDescription": "Plataforma desarrollada en Next.js que ofrece rutinas, vídeos y recursos fitness adaptados a familias ocupadas."
+      },
+      {
+        "name": "WellnessReal",
+        "shortDescription": "Web de salud y bienestar enfocada en el fitness.",
+        "fullDescription": "Desarrollada en WordPress, combina contenidos sobre alimentación, entrenamiento y coaching personalizado."
+      },
+      {
+        "name": "Caservi",
+        "shortDescription": "Empresa de climatización y reformas.",
+        "fullDescription": "Landing corporativa en HTML, CSS y JavaScript puro. Presenta servicios de instalación de aire acondicionado y reformas menores."
+      },
+      {
+        "name": "CodeConnect",
+        "shortDescription": "Plataforma profesional para servicios digitales.",
+        "fullDescription": "Proyecto en Next.js + TypeScript para una startup. UI limpia, secciones modulares, automatización explicada y formulario con Nodemailer."
+      },
+      {
+        "name": "Antea",
+        "shortDescription": "Entrenamiento personalizado a domicilio para mayores.",
+        "fullDescription": "Landing en Next.js y EmailJS con enfoque humano y accesible. Incluye testimonios, comparativa de planes y formulario guiado."
+      },
+      {
+        "name": "Caniches con Amor",
+        "shortDescription": "Web sobre asesoría y comunidad para amantes del caniche.",
+        "fullDescription": "Landing en WordPress para vender asesorías, informar sobre cría responsable y conectar a nuevos dueños con criaderos legales."
+      },
+      {
+        "name": "Escapa Cantabria",
+        "shortDescription": "Alquiler de autocaravanas en Cantabria.",
+        "fullDescription": "Web WordPress para presentar flota, precios y reservas de autocaravanas. Diseño limpio y navegación directa para usuarios móviles."
+      }
+    ]
+  }
+}

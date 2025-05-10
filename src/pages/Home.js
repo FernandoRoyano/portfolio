@@ -1,8 +1,11 @@
 import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './Home.css';
+import { useTranslation } from 'react-i18next';
 
 function Home() {
+  const { t } = useTranslation();
+
   return (
     <section className="home">
       {/* ✅ Avatar ilustrado */}
@@ -12,43 +15,42 @@ function Home() {
         className="avatar"
       />
 
-      <h1>Hola, soy Fernando</h1>
+      <h1>{t('home.title')}</h1>
 
       <h2 className="headline">
-        Product Builder & Front-End Developer<br />
-        <span className="sub">Llevo ideas digitales desde el concepto hasta el lanzamiento.</span>
+        {t('home.headline')}<br />
+        <span className="sub">{t('home.subheadline')}</span>
       </h2>
 
       <p className="short-intro">
-        Combino diseño, desarrollo y visión de negocio para dar forma a proyectos web con impacto real.
+        {t('home.intro')}
       </p>
 
       <div className="value-grid">
         <div>
-          <h3>🤝 Colaboro</h3>
-          <p>Me gusta trabajar con personas que tienen una idea y ayudarles a hacerla realidad.</p>
+          <h3>🤝 {t('home.values.collaborate')}</h3>
+          <p>{t('home.values.collaborateText')}</p>
         </div>
         <div>
-          <h3>🧠 Pienso en producto</h3>
-          <p>No solo programo. Me involucro en la experiencia, el valor y el enfoque estratégico.</p>
+          <h3>🧠 {t('home.values.product')}</h3>
+          <p>{t('home.values.productText')}</p>
         </div>
         <div>
-          <h3>⚙️ Construyo con IA</h3>
-          <p>Uso herramientas modernas e inteligencia artificial para acelerar y mejorar el desarrollo.</p>
+          <h3>⚙️ {t('home.values.ai')}</h3>
+          <p>{t('home.values.aiText')}</p>
         </div>
       </div>
 
       <div className="soft-skills">
-  <h3>🧠 Habilidades blandas que marcan la diferencia</h3>
-  <ul>
-    <li>🔍 Visión estratégica de negocio y producto</li>
-    <li>🧩 Diseño de sistemas, procesos y flujos digitales</li>
-    <li>📣 Comunicación clara y capacidad de venta</li>
-    <li>🎯 Enfoque en conversión, captación y escalabilidad</li>
-    <li>🤝 Trabajo colaborativo con perfiles técnicos y no técnicos</li>
-  </ul>
-</div>
-
+        <h3>🧠 {t('home.softSkills.title')}</h3>
+        <ul>
+          <li>🔍 {t('home.softSkills.vision')}</li>
+          <li>🧩 {t('home.softSkills.systems')}</li>
+          <li>📣 {t('home.softSkills.communication')}</li>
+          <li>🎯 {t('home.softSkills.focus')}</li>
+          <li>🤝 {t('home.softSkills.teamwork')}</li>
+        </ul>
+      </div>
 
       <div className="home-buttons">
         <a href="https://github.com/FernandoRoyano" target="_blank" rel="noopener noreferrer">
@@ -63,7 +65,7 @@ function Home() {
           rel="noopener noreferrer"
           download
         >
-          📄 Ver / Descargar CV
+          📄 {t('home.downloadCV')}
         </a>
       </div>
     </section>

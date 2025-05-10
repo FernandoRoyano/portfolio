@@ -1,29 +1,41 @@
 # 🌐 Fernando Royano – Portfolio Web
 
-Bienvenido a mi portfolio profesional como **Product Builder & Front-End Developer**. Este proyecto refleja mi enfoque moderno para construir soluciones digitales con impacto real, combinando diseño, desarrollo y visión de negocio.
+Bienvenido a mi portfolio profesional como **Product Builder & Front-End Developer**. Este proyecto refleja mi enfoque moderno para construir soluciones digitales con impacto real, combinando diseño, desarrollo y visión estratégica de negocio.
 
 ---
 
 ## 🚀 Tecnologías utilizadas
 
-- ⚛️ **React** – Framework base
-- 💅 **CSS Modules** – Estilos escalables por componente
-- 🧠 **JavaScript / TypeScript** – Lógica funcional y mantenimiento
-- 🎨 **Figma** (diseño previo de interfaz)
-- 📦 **React Router DOM** – Navegación SPA
-- 🌍 **Git + GitHub** – Control de versiones
-- ☁️ **Vercel** o **Netlify** – (para despliegue)
+- ⚛️ **React** – Librería principal para construir interfaces
+- 📦 **React Router DOM** – Navegación tipo SPA
+- 💅 **CSS Modules** – Estilos encapsulados y escalables
+- 🧠 **JavaScript / TypeScript** – Desarrollo funcional y mantenible
+- 🌐 **i18next + react-i18next** – Soporte multidioma (ES / EN)
+- 🎨 **Figma** – Diseño de interfaz previo
+- 🗃 **Git + GitHub** – Control de versiones y colaboración
+- ☁️ **Vercel / Netlify** – Despliegue continuo
 
 ---
 
 ## 🖥️ Secciones destacadas
 
-| Sección    | Descripción |
-|------------|-------------|
-| 🏠 Home     | Presentación personal, valores y CTA |
-| 🧠 Skills   | Herramientas y tecnologías que domino |
-| 📁 Projects | Muestra de proyectos reales con detalles |
-| ✉️ Contact  | Formulario o enlaces directos para contacto |
+| Sección     | Descripción |
+|-------------|-------------|
+| 🏠 Home      | Presentación personal, valores, visión y CTA |
+| 🧠 Skills    | Tecnologías y herramientas organizadas por categorías |
+| 📁 Projects  | Galería de proyectos reales con detalles técnicos |
+| ✉️ Contact   | Formulario funcional conectado a EmailJS |
+
+---
+
+## 🌍 Soporte multidioma
+
+El portfolio está disponible en:
+
+- Español 🇪🇸
+- Inglés 🇬🇧
+
+Puedes cambiar el idioma desde el menú superior.
 
 ---
 
@@ -32,45 +44,32 @@ Bienvenido a mi portfolio profesional como **Product Builder & Front-End Develop
 ```bash
 mi-portfolio/
 ├── public/
-│   └── images/
+│   └── images/          # Avatar e ilustraciones
 ├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── data/
-│   ├── styles/
+│   ├── components/      # Header, Footer, LanguageSwitcher, etc.
+│   ├── pages/           # Home, Skills, Projects, Contact
+│   ├── data/            # Datos como proyectos y skills
+│   ├── i18n/            # Archivos de traducción (es.json, en.json)
 │   └── App.js
 ├── README.md
 └── package.json
 
-# 1. Cloná el repositorio
+🛠 Instalación local
+# 1. Clona el repositorio
 git clone https://github.com/FernandoRoyano/mi-portfolio.git
-
-# 2. Accedé al proyecto
+# 2. Accede al directorio
 cd mi-portfolio
-
-# 3. Instalá las dependencias
+# 3. Instala las dependencias
 npm install
-
-# 4. Iniciá el servidor de desarrollo
+# 4. Ejecuta el servidor de desarrollo
 npm start
 
-🌐 Despliegue
-Este proyecto puede desplegarse en plataformas como:
-
-Vercel
-
-Netlify
-
-GitHub Pages (con ajustes)
-
 👤 Sobre mí
-Soy un desarrollador frontend con orientación a producto, enfocado en construir soluciones completas desde la idea hasta el lanzamiento. Me encanta combinar código, diseño y estrategia para crear valor real.
+Soy desarrollador frontend con mentalidad de producto. Me gusta entender la visión, participar en la estrategia y construir soluciones reales desde la idea hasta el lanzamiento.
 
 📍 fernandoroyano.dev
 💼 LinkedIn
 💻 GitHub
 
 📄 Licencia
-Este proyecto está bajo licencia MIT.
-
-
+Este proyecto está licenciado bajo MIT.

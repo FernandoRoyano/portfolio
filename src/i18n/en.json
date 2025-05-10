@@ -1,0 +1,69 @@
+{
+  "home": {
+    "title": "Hi, I'm Fernando",
+    "headline": "Product Builder & Front-End Developer",
+    "sub": "I take digital ideas from concept to launch.",
+    "intro": "I combine design, development and business vision to shape web projects with real impact.",
+    "downloadCV": "View / Download CV",
+    "softSkillsTitle": "🧠 Soft skills that make the difference",
+    "skills": [
+      "🔍 Strategic vision for business and product",
+      "🧩 System, process and digital flow design",
+      "📣 Clear communication and sales ability",
+      "🎯 Focus on conversion, acquisition and scalability",
+      "🤝 Collaborative work with technical and non-technical profiles"
+    ],
+    "values": {
+      "collaborate": "I collaborate",
+      "collaborateText": "I enjoy working with people who have an idea and helping them make it real.",
+      "product": "I think in product",
+      "productText": "I don’t just code. I get involved in experience, value and strategic thinking.",
+      "ai": "I build with AI",
+      "aiText": "I use modern tools and artificial intelligence to speed up and enhance development."
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "show": "Show more ▼",
+    "hide": "Hide details ▲",
+    "link": "View on GitHub / Demo",
+    "tech": "Technologies",
+    "items": [
+      {
+        "name": "Parent Fit",
+        "shortDescription": "Online academy for busy parents who want to get fit.",
+        "fullDescription": "Platform built in Next.js offering routines, videos and fitness resources tailored to families with limited time."
+      },
+      {
+        "name": "WellnessReal",
+        "shortDescription": "Health and wellness website focused on fitness.",
+        "fullDescription": "Built in WordPress, it combines content about nutrition, training and personalized coaching."
+      },
+      {
+        "name": "Caservi",
+        "shortDescription": "Air conditioning and renovation company.",
+        "fullDescription": "Corporate landing page using HTML, CSS and pure JavaScript. Showcases installation and minor renovation services."
+      },
+      {
+        "name": "CodeConnect",
+        "shortDescription": "Professional platform for digital services.",
+        "fullDescription": "Next.js + TypeScript project for a startup. Clean UI, modular sections, process automation explained and contact form via Nodemailer."
+      },
+      {
+        "name": "Antea",
+        "shortDescription": "Personal training and in-home assistance for seniors.",
+        "fullDescription": "Landing page made with Next.js and EmailJS. Human-centered approach with testimonials, service comparison and guided form."
+      },
+      {
+        "name": "Caniches con Amor",
+        "shortDescription": "Website for poodle lovers and consulting services.",
+        "fullDescription": "WordPress landing for promoting breed education, selling consultations and connecting families with trusted breeders."
+      },
+      {
+        "name": "Escapa Cantabria",
+        "shortDescription": "Motorhome rental in Cantabria.",
+        "fullDescription": "WordPress site showcasing fleet, prices and reservations. Clean layout with mobile-friendly navigation."
+      }
+    ]
+  }
+}

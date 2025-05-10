@@ -1,43 +1,42 @@
 import React, { useState } from 'react';
 import './Projects.css';
 import projects from '../data/projectsData';
+import { useTranslation } from 'react-i18next';
 
 function Projects() {
+  const { t } = useTranslation();
+
   return (
     <section className="projects-section">
-      <h2>Proyectos</h2>
+      <h2>{t('projects.title')}</h2>
       <div className="projects-grid">
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+          <ProjectCard key={index} project={project} index={index} />
         ))}
       </div>
     </section>
   );
 }
 
-// Componente individual con transición suave
-function ProjectCard({ project }) {
+function ProjectCard({ project, index }) {
   const [expanded, setExpanded] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div className="project-card">
-      <h3>{project.name}</h3>
-      <p>{project.shortDescription}</p>
-
-      <button onClick={() => setExpanded((prev) => !prev)}>
-        {expanded ? 'Ocultar detalles ▲' : 'Ver más ▼'}
+      <h3>{t(`projects.items.${index}.name`)}</h3>
+      <p>{t(`projects.items.${index}.shortDescription`)}</p>
+      <button onClick={() => setExpanded(!expanded)}>
+        {expanded ? t('projects.hide') : t('projects.show')}
       </button>
-
       <div className={`project-details ${expanded ? 'expanded' : ''}`}>
-        {expanded && (
-          <>
-            <p>{project.fullDescription}</p>
-            <p>
-              <strong>Tecnologías:</strong> {project.technologies.join(', ')}
-            </p>
-
-          </>
-        )}
+        <p>{t(`projects.items.${index}.fullDescription`)}</p>
+        <p>
+          <strong>{t('projects.tech')}:</strong> {project.technologies.join(', ')}
+        </p>
+        <a href={project.link} target="_blank" rel="noopener noreferrer">
+          {t('projects.link')}
+        </a>
       </div>
     </div>
   );
