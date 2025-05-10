@@ -7,7 +7,7 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="logo">Fernando Royano</div>
+      <div className="logo">Fernando Royano · Product Builder</div>
 
       {/* Botón hamburguesa */}
       <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
