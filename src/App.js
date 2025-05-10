@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <Footer /> {/* ✅ Aquí se asegura que aparezca en todas las páginas */}
     </Router>
   );
 }
