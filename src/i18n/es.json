@@ -2,26 +2,27 @@
   "home": {
     "title": "Hola, soy Fernando",
     "headline": "Product Builder & Front-End Developer",
-    "sub": "Llevo ideas digitales desde el concepto hasta el lanzamiento.",
+    "subheadline": "Llevo ideas digitales desde el concepto hasta el lanzamiento.",
     "intro": "Combino diseño, desarrollo y visión de negocio para dar forma a proyectos web con impacto real.",
     "downloadCV": "Ver / Descargar CV",
-    "softSkillsTitle": "🧠 Habilidades blandas que marcan la diferencia",
-    "skills": [
-      "🔍 Visión estratégica de negocio y producto",
-      "🧩 Diseño de sistemas, procesos y flujos digitales",
-      "📣 Comunicación clara y capacidad de venta",
-      "🎯 Enfoque en conversión, captación y escalabilidad",
-      "🤝 Trabajo colaborativo con perfiles técnicos y no técnicos"
-    ],
+    "softSkills": {
+      "title": "🧠 Habilidades blandas que marcan la diferencia",
+      "vision": "🔍 Visión estratégica de negocio y producto",
+      "systems": "🧩 Diseño de sistemas, procesos y flujos digitales",
+      "communication": "📣 Comunicación clara y capacidad de venta",
+      "focus": "🎯 Enfoque en conversión, captación y escalabilidad",
+      "teamwork": "🤝 Trabajo colaborativo con perfiles técnicos y no técnicos"
+    },
     "values": {
-      "collaborate": "Colaboro",
+      "collaborate": "🤝 Colaboro",
       "collaborateText": "Me gusta trabajar con personas que tienen una idea y ayudarles a hacerla realidad.",
-      "product": "Pienso en producto",
-      "productText": "No solo programo. Me involucro en la experiencia, el valor y el enfoque estratégico.",
-      "ai": "Construyo con IA",
-      "aiText": "Uso herramientas modernas e inteligencia artificial para acelerar y mejorar el desarrollo."
+      "product": "💡 Pienso en producto",
+      "productText": "No solo programo. Me involucro en la experiencia, el valor y el negocio.",
+      "ai": "🤖 Aprovecho la IA",
+      "aiText": "Uso herramientas de IA para potenciar los procesos creativos y técnicos."
     }
-  },
+  
+},
   "projects": {
     "title": "Proyectos",
     "show": "Ver más ▼",

@@ -2,23 +2,23 @@
   "home": {
     "title": "Hi, I'm Fernando",
     "headline": "Product Builder & Front-End Developer",
-    "sub": "I take digital ideas from concept to launch.",
+    "subheadline": "I take digital ideas from concept to launch.",
     "intro": "I combine design, development and business vision to shape web projects with real impact.",
     "downloadCV": "View / Download CV",
-    "softSkillsTitle": "🧠 Soft skills that make the difference",
-    "skills": [
-      "🔍 Strategic vision for business and product",
-      "🧩 System, process and digital flow design",
-      "📣 Clear communication and sales ability",
-      "🎯 Focus on conversion, acquisition and scalability",
-      "🤝 Collaborative work with technical and non-technical profiles"
-    ],
+    "softSkills": {
+      "title": "🧠 Soft skills that make the difference",
+      "vision": "🔍 Strategic vision for business and product",
+      "systems": "🧩 System, process and digital flow design",
+      "communication": "📣 Clear communication and sales ability",
+      "focus": "🎯 Focus on conversion, acquisition and scalability",
+      "teamwork": "🤝 Collaborative work with technical and non-technical profiles"
+    },
     "values": {
-      "collaborate": "I collaborate",
+      "collaborate": "🤝 I collaborate",
       "collaborateText": "I enjoy working with people who have an idea and helping them make it real.",
-      "product": "I think in product",
+      "product": "💡 I think in product",
       "productText": "I don’t just code. I get involved in experience, value and strategic thinking.",
-      "ai": "I build with AI",
+      "ai": "🤖 I build with AI",
       "aiText": "I use modern tools and artificial intelligence to speed up and enhance development."
     }
   },
