@@ -1,20 +1,24 @@
 import React, { useRef, useState } from 'react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { PiCheckCircle, PiWarningCircle } from 'react-icons/pi';
 import emailjs from 'emailjs-com';
 import './Contact.css';
+import { useTranslation } from 'react-i18next';
 
 function Contact() {
   const form = useRef();
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const { t } = useTranslation();
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs.sendForm(
-      'service_zsg0e8k',          // ✅ Service ID
-      'template_acck388',         // ✅ Template ID
+      'service_zsg0e8k',
+      'template_acck388',
       form.current,
-      'YqaBS775_UBQweZfz'         // ✅ Public Key (user ID)
+      'YqaBS775_UBQweZfz'
     )
     .then(() => {
       setSent(true);
@@ -29,26 +33,25 @@ function Contact() {
 
   return (
     <section className="contact-section">
-      <h2>Contacto</h2>
-      <p>¿Quieres hablar conmigo? Rellena el formulario o encuéntrame en redes:</p>
+      <h2>{t('contact.title', 'Contacto')}</h2>
+      <p>{t('contact.subtitle', 'Hablemos sobre tu proyecto')}</p>
 
       <form ref={form} className="contact-form" onSubmit={sendEmail}>
-        <input type="text" name="user_name" placeholder="Tu nombre" required />
-        <input type="email" name="user_email" placeholder="Tu email" required />
-        <textarea name="message" placeholder="Tu mensaje..." rows="5" required></textarea>
-        <button type="submit">Enviar</button>
+        <input type="text" name="user_name" placeholder={t('contact.name', 'Tu nombre')} required />
+        <input type="email" name="user_email" placeholder={t('contact.email', 'Tu email')} required />
+        <textarea name="message" placeholder={t('contact.message', 'Cuéntame tu idea...')} rows="5" required></textarea>
+        <button type="submit">{t('contact.send', 'Enviar mensaje')}</button>
 
-        {/* ✅ Mensajes de feedback */}
-        {sent && <p className="success-msg">✅ ¡Mensaje enviado correctamente!</p>}
-        {error && <p className="error-msg">❌ Error al enviar. Inténtalo más tarde.</p>}
+        {sent && <p className="success-msg"><PiCheckCircle /> {t('contact.success', 'Mensaje enviado correctamente')}</p>}
+        {error && <p className="error-msg"><PiWarningCircle /> {t('contact.error', 'Error al enviar. Inténtalo más tarde.')}</p>}
       </form>
 
       <div className="contact-links">
         <a href="https://github.com/FernandoRoyano" target="_blank" rel="noopener noreferrer">
-          GitHub
+          <FaGithub /> GitHub
         </a>
         <a href="https://www.linkedin.com/in/fernando-royano-cabrero-dev/" target="_blank" rel="noopener noreferrer">
-          LinkedIn
+          <FaLinkedin /> LinkedIn
         </a>
       </div>
     </section>

@@ -1,90 +1,201 @@
+/* ── Projects Section ── */
 .projects-section {
-  padding: 4rem 2rem;
-  background-color: #f0f0f0;
+  padding: 6rem 2rem;
+  background: #fafafa;
   min-height: 100vh;
-  text-align: center;
 }
 
 .projects-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #222;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #1a1a2e;
 }
 
-/* CONTENEDOR DE TARJETAS */
+.projects-subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 1.05rem;
+  margin-bottom: 4rem;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Grid ── */
 .projects-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* TARJETA INDIVIDUAL */
+/* ── Card ── */
 .project-card {
-  width: 300px;
-  background: white;
-  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   text-align: left;
-  transition: transform 0.3s;
-  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00adb5, #00d4ff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Card Header ── */
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
 }
 
 .project-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.02em;
 }
 
-.project-card p {
-  margin: 0.5rem 0;
-  color: #444;
+.project-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: #00adb5;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
 }
 
-.project-card button {
-  margin-top: 1rem;
+.project-card-link:hover {
+  color: #008b92;
+  gap: 0.5rem;
+}
+
+.project-card > p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0 0 1rem 0;
+}
+
+/* ── Tech Tags ── */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  background: #f0f0f0;
+  color: #555;
+  letter-spacing: 0.01em;
+}
+
+/* ── Expand Button ── */
+.expand-btn {
   background: none;
   border: none;
   color: #00adb5;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   padding: 0;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s ease;
 }
 
-.project-card button:hover {
-  text-decoration: underline;
+.expand-btn:hover {
+  color: #008b92;
 }
 
-/* DETALLES EXPANDIBLES CON TRANSICIÓN */
+/* ── Details ── */
 .project-details {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.3s ease;
-  padding-top: 0; /* Evita salto cuando se cierra */
+  transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.4s ease;
 }
 
 .project-details.expanded {
-  max-height: 500px;
+  max-height: 300px;
   opacity: 1;
+  margin-top: 1rem;
   padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.project-details a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: #007c84;
-  font-weight: bold;
-  text-decoration: none;
+.project-details p {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
-.project-details a:hover {
-  text-decoration: underline;
+/* ── Scroll reveal ── */
+@supports (animation-timeline: view()) {
+  .project-card {
+    animation: cardReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+
+  @keyframes cardReveal {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 4rem 1.2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
 }
