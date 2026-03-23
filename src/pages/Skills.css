@@ -39,8 +39,11 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.category-header span {
+.category-header .category-icon {
   font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  color: #00adb5;
 }
 
 .category-header h3 {

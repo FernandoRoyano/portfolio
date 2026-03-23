@@ -16,11 +16,11 @@ const projects = [
     },
     {
       name: 'WellnessReal',
-      shortDescription: 'Plataforma integral de fitness y salud global.',
+      shortDescription: 'Plataforma de entrenamiento personal online con seguimiento semanal.',
       fullDescription:
-        'Sitio web desarrollado en WordPress que ofrece servicios personalizados de entrenamiento online, asesoramiento nutricional y osteopatía. Incluye acceso para clientes, blog y recursos multimedia.',
-      technologies: ['WordPress'],
-      link: 'https://wellnessreal.es/'
+        'Plataforma profesional de fitness online que ofrece planes personalizados de entrenamiento, nutrición y osteopatía. Incluye app móvil con vídeos demostrativos, seguimiento automático de progreso y ajustes semanales por parte de profesionales.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+      link: 'https://wellnessreal.es'
     },
     {
         name: "Caservi",

@@ -1,12 +1,13 @@
 import React from 'react';
+import { PiPaintBrush, PiGearSix, PiRobot } from 'react-icons/pi';
 import './Skills.css';
 import skills from '../data/skillsData';
 import { useTranslation } from 'react-i18next';
 
 const categoryIcons = {
-  Frontend: '🎨',
-  Backend: '⚙️',
-  'IA & Herramientas': '🤖'
+  Frontend: <PiPaintBrush />,
+  Backend: <PiGearSix />,
+  'IA & Herramientas': <PiRobot />
 };
 
 function Skills() {
@@ -19,7 +20,7 @@ function Skills() {
       {Object.entries(skills).map(([category, items]) => (
         <div key={category} className="skill-category">
           <div className="category-header">
-            <span>{categoryIcons[category]}</span>
+            <span className="category-icon">{categoryIcons[category]}</span>
             <h3>{category}</h3>
           </div>
           <div className="skills-grid">

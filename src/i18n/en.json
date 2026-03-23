@@ -6,26 +6,26 @@
     "intro": "I combine design, frontend and backend development, and business vision to create web projects with real impact.",
     "downloadCV": "View / Download CV",
     "softSkills": {
-      "title": "🧠 Soft skills that make the difference",
-      "vision": "🔍 Strategic vision for business and product",
-      "systems": "🧩 System, process and digital flow design",
-      "communication": "📣 Clear communication and sales ability",
-      "focus": "🎯 Focus on conversion, acquisition and scalability",
-      "teamwork": "🤝 Collaborative work with technical and non-technical profiles"
+      "title": "Soft skills that make the difference",
+      "vision": "Strategic vision for business and product",
+      "systems": "System, process and digital flow design",
+      "communication": "Clear communication and sales ability",
+      "focus": "Focus on conversion, acquisition and scalability",
+      "teamwork": "Collaborative work with technical and non-technical profiles"
     },
     "values": {
-      "collaborate": "🤝 I collaborate",
+      "collaborate": "I collaborate",
       "collaborateText": "I enjoy working with people who have an idea and helping them make it real.",
-      "product": "💡 I think in product",
-      "productText": "I don’t just code. I get involved in experience, value and strategic thinking.",
-      "ai": "🤖 I build with AI",
+      "product": "I think in product",
+      "productText": "I don't just code. I get involved in experience, value and strategic thinking.",
+      "ai": "I build with AI",
       "aiText": "I use modern tools and artificial intelligence to speed up and enhance development."
     }
   },
   "projects": {
     "title": "Projects",
-    "show": "Show more ▼",
-    "hide": "Hide details ▲",
+    "show": "Show more",
+    "hide": "Hide details",
     "link": "View on GitHub / Demo",
     "tech": "Technologies",
     "items": [
@@ -41,8 +41,8 @@
       },
       {
         "name": "WellnessReal",
-        "shortDescription": "Health and wellness website focused on fitness.",
-        "fullDescription": "Built in WordPress, it combines content about nutrition, training and personalized coaching."
+        "shortDescription": "Online personal training platform.",
+        "fullDescription": "Professional fitness platform with personalized plans, nutrition and osteopathy. Mobile app with videos, progress tracking and weekly adjustments."
       },
       {
         "name": "Caservi",
@@ -72,7 +72,7 @@
       {
         "name": "Escapa Cantabria",
         "shortDescription": "Motorhome rental in Cantabria.",
-        "fullDescription": "WordPress site showcasing fleet, prices and reservations. Clean layout with mobile-friendly navigation."
+        "fullDescription": "Website showcasing fleet, prices and reservations. Clean layout with mobile-friendly navigation."
       }
     ]
   }
