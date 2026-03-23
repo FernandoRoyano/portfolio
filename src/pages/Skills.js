@@ -1,23 +1,30 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React from 'react';
 import './Skills.css';
 import skills from '../data/skillsData';
+import { useTranslation } from 'react-i18next';
+
+const categoryIcons = {
+  Frontend: '🎨',
+  Backend: '⚙️',
+  'IA & Herramientas': '🤖'
+};
 
 function Skills() {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
+  const { t } = useTranslation();
 
   return (
     <section className="skills-section">
-      <h2>Habilidades</h2>
+      <h2>{t('skills.title', 'Stack')}</h2>
+      <p className="skills-subtitle">{t('skills.subtitle', 'Tecnologias con las que trabajo dia a dia')}</p>
       {Object.entries(skills).map(([category, items]) => (
         <div key={category} className="skill-category">
-          <h3>{category}</h3>
+          <div className="category-header">
+            <span>{categoryIcons[category]}</span>
+            <h3>{category}</h3>
+          </div>
           <div className="skills-grid">
             {items.map((skill, index) => (
-              <div key={index} className="skill-card" data-aos="fade-up">
+              <div key={index} className="skill-card">
                 <img src={skill.icon} alt={skill.name} />
                 <p>{skill.name}</p>
               </div>

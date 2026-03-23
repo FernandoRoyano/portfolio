@@ -1,5 +1,12 @@
 const projects = [
     {
+      name: 'CRM Health Fitness',
+      shortDescription: 'CRM completo para gestión de clientes en el sector fitness.',
+      fullDescription: 'Sistema CRM desarrollado para la gestión integral de clientes en gimnasios y centros de entrenamiento personal. Incluye dashboard con métricas, seguimiento de clientes, analíticas de rendimiento y gestión de planes de entrenamiento.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express.js'],
+      link: 'https://github.com/FernandoRoyano/HealthyFitness'
+    },
+    {
       name: 'Parent Fit',
       shortDescription: 'Academia online para padres y madres con poco tiempo que quieren ponerse en forma.',
       fullDescription:
@@ -27,27 +34,34 @@ const projects = [
         shortDescription: 'Plataforma corporativa para una startup tecnológica especializada en soluciones digitales.',
         fullDescription: 'Sitio web profesional desarrollado con Next.js y TypeScript para presentar los servicios de CodeConnect. Incluye diseño moderno, navegación responsive, automatización de procesos y formulario de contacto funcional con Nodemailer. Enfocado en IA, automatización y escalabilidad.',
         technologies: ['Next.js', 'React', 'TypeScript', 'CSS Modules', 'Nodemailer'],
-        link: 'https://github.com/FernandoRoyano/codeconnect'
+        link: 'https://codeconnect-ten.vercel.app'
       },
       {
-        name: 'Antea',
-        shortDescription: 'Landing page profesional para un servicio de entrenamiento físico a domicilio para personas mayores.',
-        fullDescription: 'Antea es una web informativa desarrollada con Next.js y TypeScript, enfocada en transmitir confianza y facilitar el contacto para un servicio personalizado de entrenamiento y acompañamiento. Incluye hero visual, descripción de planes, testimonios, comparativa de servicios, formulario guiado y diseño accesible.',
+        name: 'DR Nutrición',
+        shortDescription: 'Plataforma de consultoría online especializada en salud digestiva.',
+        fullDescription: 'Web profesional para un especialista en nutrición clínica y patología digestiva. Incluye planes de seguimiento personalizados (básico, intermedio y avanzado), secciones de especialidades (colitis ulcerosa, SIBO, intolerancias), testimonios de pacientes y sistema de contacto directo.',
+        technologies: ['Next.js', 'React', 'TypeScript', 'CSS'],
+        link: 'https://patologia-digestiva.vercel.app'
+      },
+      {
+        name: 'Antea Salud',
+        shortDescription: 'Servicio de entrenamiento y rehabilitación a domicilio para personas mayores.',
+        fullDescription: 'Landing profesional para un servicio especializado en gerontología y rehabilitación física a domicilio. Enfoque humano y accesible con testimonios, comparativa de planes, formulario guiado y diseño pensado para transmitir confianza tanto a mayores como a sus familias.',
         technologies: ['Next.js', 'React', 'TypeScript', 'CSS Modules', 'EmailJS'],
-        link: 'https://antea.vercel.app/' // o el link que uses si es otro
+        link: 'https://anteasalud-landing.vercel.app'
       },
       {
         name: 'Caniches con Amor',
-        shortDescription: 'Landing page en WordPress para una asesora especializada en el mundo del caniche.',
-        fullDescription: 'Sitio web informativo y emocional creado con WordPress para lanzar una propuesta de valor en torno a la asesoría para propietarios y futuros dueños de caniches. El objetivo es educar, conectar con criaderos legales y crear comunidad en torno a la raza, ofreciendo servicios personalizados y seguros.',
-        technologies: ['WordPress'],
-        link: 'https://canichesconamor.com' // reemplazalo si aún no está en producción
+        shortDescription: 'Web de asesoría y comunidad para amantes del caniche.',
+        fullDescription: 'Sitio web informativo y emocional para una asesora especializada en el mundo del caniche. Incluye servicios de consultoría, información sobre cría responsable, comunidad premium y conexión con criaderos legales.',
+        technologies: ['Next.js', 'React', 'TypeScript'],
+        link: 'https://canichesconamor.com'
       },
       {
         name: 'Escapa Cantabria',
         shortDescription: 'Empresa de alquiler de autocaravanas en Santander con más de 15 años de experiencia.',
         fullDescription: 'Escapa Cantabria es una empresa especializada en el alquiler de autocaravanas, ofreciendo vehículos totalmente equipados para que los clientes solo tengan que hacer su maleta. Con más de 15 años de experiencia viajando por España y Europa, proporcionan asesoramiento continuo y un servicio de alquiler todo incluido, garantizando comodidad y libertad en cada viaje.',
-        technologies: ['WordPress'],
+        technologies: ['Next.js', 'React', 'TypeScript'],
         link: 'https://autocaravanasescapacantabria.com/'
       }
       

@@ -31,6 +31,11 @@
     "tech": "Tecnologías",
     "items": [
       {
+        "name": "CRM Health Fitness",
+        "shortDescription": "CRM completo para gestión de clientes en el sector fitness.",
+        "fullDescription": "Sistema CRM desarrollado para la gestión integral de clientes en gimnasios y centros de entrenamiento personal. Incluye dashboard con métricas, seguimiento de clientes, analíticas de rendimiento y gestión de planes de entrenamiento."
+      },
+      {
         "name": "Parent Fit",
         "shortDescription": "Academia online para padres y madres con poco tiempo.",
         "fullDescription": "Plataforma desarrollada en Next.js que ofrece rutinas, vídeos y recursos fitness adaptados a familias ocupadas."
@@ -51,14 +56,19 @@
         "fullDescription": "Proyecto en Next.js + TypeScript para una startup. UI limpia, secciones modulares, automatización explicada y formulario con Nodemailer."
       },
       {
-        "name": "Antea",
-        "shortDescription": "Entrenamiento personalizado a domicilio para mayores.",
-        "fullDescription": "Landing en Next.js y EmailJS con enfoque humano y accesible. Incluye testimonios, comparativa de planes y formulario guiado."
+        "name": "DR Nutrición",
+        "shortDescription": "Consultoría online de salud digestiva.",
+        "fullDescription": "Web profesional para un especialista en nutrición clínica y patología digestiva. Planes de seguimiento personalizados, especialidades, testimonios y sistema de contacto directo."
+      },
+      {
+        "name": "Antea Salud",
+        "shortDescription": "Entrenamiento y rehabilitación a domicilio para mayores.",
+        "fullDescription": "Landing profesional de gerontología y rehabilitación a domicilio. Enfoque humano con testimonios, comparativa de planes y formulario guiado."
       },
       {
         "name": "Caniches con Amor",
-        "shortDescription": "Web sobre asesoría y comunidad para amantes del caniche.",
-        "fullDescription": "Landing en WordPress para vender asesorías, informar sobre cría responsable y conectar a nuevos dueños con criaderos legales."
+        "shortDescription": "Asesoría y comunidad para amantes del caniche.",
+        "fullDescription": "Web para una asesora especializada en el caniche. Consultoría, cría responsable, comunidad premium y conexión con criaderos legales."
       },
       {
         "name": "Escapa Cantabria",

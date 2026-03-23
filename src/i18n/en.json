@@ -30,6 +30,11 @@
     "tech": "Technologies",
     "items": [
       {
+        "name": "CRM Health Fitness",
+        "shortDescription": "Complete CRM for client management in the fitness industry.",
+        "fullDescription": "CRM system developed for comprehensive client management in gyms and personal training centers. Includes dashboard with metrics, client tracking, performance analytics and training plan management."
+      },
+      {
         "name": "Parent Fit",
         "shortDescription": "Online academy for busy parents who want to get fit.",
         "fullDescription": "Platform built in Next.js offering routines, videos and fitness resources tailored to families with limited time."
@@ -50,14 +55,19 @@
         "fullDescription": "Next.js + TypeScript project for a startup. Clean UI, modular sections, process automation explained and contact form via Nodemailer."
       },
       {
-        "name": "Antea",
-        "shortDescription": "Personal training and in-home assistance for seniors.",
-        "fullDescription": "Landing page made with Next.js and EmailJS. Human-centered approach with testimonials, service comparison and guided form."
+        "name": "DR Nutrición",
+        "shortDescription": "Online digestive health consulting platform.",
+        "fullDescription": "Professional website for a clinical nutrition and digestive pathology specialist. Personalized follow-up plans, specialties, patient testimonials and direct contact system."
+      },
+      {
+        "name": "Antea Salud",
+        "shortDescription": "In-home training and rehabilitation for seniors.",
+        "fullDescription": "Professional landing for a gerontology and in-home physical rehabilitation service. Human-centered approach with testimonials, plan comparison and guided contact form."
       },
       {
         "name": "Caniches con Amor",
-        "shortDescription": "Website for poodle lovers and consulting services.",
-        "fullDescription": "WordPress landing for promoting breed education, selling consultations and connecting families with trusted breeders."
+        "shortDescription": "Consulting and community for poodle lovers.",
+        "fullDescription": "Website for a specialized poodle advisor. Consulting services, responsible breeding info, premium community and trusted breeder connections."
       },
       {
         "name": "Escapa Cantabria",
