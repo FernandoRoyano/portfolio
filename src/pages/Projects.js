@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { PiArrowRight, PiCaretDown, PiCaretUp } from 'react-icons/pi';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Projects.css';
 import projects from '../data/projectsData';
 import { useTranslation } from 'react-i18next';
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Projects() {
   const { t } = useTranslation();
@@ -17,16 +14,8 @@ function Projects() {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
       tl.from('h2', { opacity: 0, y: 30, duration: 0.7 })
-        .from('.projects-subtitle', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3');
-
-      gsap.from('.project-card', {
-        scrollTrigger: { trigger: '.projects-grid', start: 'top 90%' },
-        opacity: 0,
-        y: 50,
-        stagger: 0.12,
-        duration: 0.7,
-        ease: 'power3.out',
-      });
+        .from('.projects-subtitle', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
+        .from('.project-card', { opacity: 0, y: 50, stagger: 0.12, duration: 0.7 }, '-=0.2');
     }, sectionRef);
 
     return () => ctx.revert();

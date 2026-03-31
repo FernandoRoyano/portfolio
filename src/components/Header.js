@@ -1,31 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Header.css';
 import LanguageSwitcher from './LanguageSwitcher';
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
 
   useEffect(() => {
-    const header = headerRef.current;
+    const handleScroll = () => {
+      const header = headerRef.current;
+      if (!header) return;
+      if (window.scrollY > 80) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    };
 
-    ScrollTrigger.create({
-      start: 'top -80',
-      onUpdate: (self) => {
-        if (self.direction === 1) {
-          header.classList.add('header-scrolled');
-        } else if (self.scroll() < 80) {
-          header.classList.remove('header-scrolled');
-        }
-      },
-    });
-
-    return () => ScrollTrigger.killAll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (

@@ -3,11 +3,8 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { PiCheckCircle, PiWarningCircle } from 'react-icons/pi';
 import emailjs from 'emailjs-com';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Contact.css';
 import { useTranslation } from 'react-i18next';
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Contact() {
   const form = useRef();

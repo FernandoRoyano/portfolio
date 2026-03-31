@@ -1,12 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { PiPaintBrush, PiGearSix, PiRobot } from 'react-icons/pi';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Skills.css';
 import skills from '../data/skillsData';
 import { useTranslation } from 'react-i18next';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const categoryIcons = {
   Frontend: <PiPaintBrush />,
@@ -26,28 +23,13 @@ function Skills() {
         .from('.skills-subtitle', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3');
 
       const categories = gsap.utils.toArray('.skill-category');
-      categories.forEach((category, i) => {
-        const delay = i * 0.15;
-
-        gsap.from(category.querySelector('.category-header'), {
-          scrollTrigger: { trigger: category, start: 'top 90%' },
-          opacity: 0,
-          y: 20,
-          duration: 0.5,
-          delay,
-          ease: 'power3.out',
-        });
-
-        gsap.from(category.querySelectorAll('.skill-card'), {
-          scrollTrigger: { trigger: category, start: 'top 85%' },
-          opacity: 0,
-          y: 30,
-          scale: 0.95,
-          stagger: 0.06,
-          duration: 0.5,
-          delay,
-          ease: 'power3.out',
-        });
+      categories.forEach((category) => {
+        tl.from(category.querySelector('.category-header'), {
+          opacity: 0, y: 20, duration: 0.5,
+        }, `-=0.2`)
+        .from(category.querySelectorAll('.skill-card'), {
+          opacity: 0, y: 30, scale: 0.95, stagger: 0.05, duration: 0.4,
+        }, '-=0.3');
       });
     }, sectionRef);
 

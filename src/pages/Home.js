@@ -13,11 +13,8 @@ import {
   PiFileText
 } from 'react-icons/pi';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Home.css';
 import { useTranslation } from 'react-i18next';
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   const { t } = useTranslation();
@@ -31,42 +28,10 @@ function Home() {
         .from('.home h1', { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
         .from('.headline', { opacity: 0, y: 30, duration: 0.7 }, '-=0.3')
         .from('.short-intro', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
-        .from('.home-buttons a', { opacity: 0, y: 15, stagger: 0.1, duration: 0.5 }, '-=0.2');
-
-      gsap.from('.value-grid > div', {
-        scrollTrigger: {
-          trigger: '.value-grid',
-          start: 'top 85%',
-        },
-        opacity: 0,
-        y: 40,
-        stagger: 0.15,
-        duration: 0.7,
-        ease: 'power3.out',
-      });
-
-      gsap.from('.soft-skills', {
-        scrollTrigger: {
-          trigger: '.soft-skills',
-          start: 'top 85%',
-        },
-        opacity: 0,
-        y: 40,
-        duration: 0.7,
-        ease: 'power3.out',
-      });
-
-      gsap.from('.soft-skills li', {
-        scrollTrigger: {
-          trigger: '.soft-skills',
-          start: 'top 80%',
-        },
-        opacity: 0,
-        x: -20,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power3.out',
-      });
+        .from('.home-buttons a', { opacity: 0, y: 15, stagger: 0.1, duration: 0.5 }, '-=0.2')
+        .from('.value-grid > div', { opacity: 0, y: 40, stagger: 0.15, duration: 0.7 }, '-=0.2')
+        .from('.soft-skills', { opacity: 0, y: 40, duration: 0.7 }, '-=0.3')
+        .from('.soft-skills li', { opacity: 0, x: -20, stagger: 0.1, duration: 0.5 }, '-=0.3');
     }, sectionRef);
 
     return () => ctx.revert();
