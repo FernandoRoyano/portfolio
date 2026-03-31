@@ -14,26 +14,17 @@ function Contact() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const el = sectionRef.current;
+    if (!el) return;
 
-      tl.from('h2', { opacity: 0, y: 30, duration: 0.7 })
-        .from('.contact-section > p', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
-        .from('.contact-form input, .contact-form textarea, .contact-form button', {
-          opacity: 0,
-          y: 25,
-          stagger: 0.1,
-          duration: 0.5,
-        }, '-=0.2')
-        .from('.contact-links a', {
-          opacity: 0,
-          y: 15,
-          stagger: 0.1,
-          duration: 0.5,
-        }, '-=0.2');
-    }, sectionRef);
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    return () => ctx.revert();
+    tl.fromTo(el.querySelector('h2'), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 })
+      .fromTo(el.querySelectorAll('.contact-section > p'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+      .fromTo(el.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form button'), { opacity: 0, y: 25 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.5 }, '-=0.2')
+      .fromTo(el.querySelectorAll('.contact-links a'), { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.5 }, '-=0.2');
+
+    return () => tl.revert();
   }, []);
 
   const sendEmail = (e) => {

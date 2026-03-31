@@ -16,24 +16,23 @@ function Skills() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const el = sectionRef.current;
+    if (!el) return;
 
-      tl.from('h2', { opacity: 0, y: 30, duration: 0.7 })
-        .from('.skills-subtitle', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3');
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      const categories = gsap.utils.toArray('.skill-category');
-      categories.forEach((category) => {
-        tl.from(category.querySelector('.category-header'), {
-          opacity: 0, y: 20, duration: 0.5,
-        }, `-=0.2`)
-        .from(category.querySelectorAll('.skill-card'), {
-          opacity: 0, y: 30, scale: 0.95, stagger: 0.05, duration: 0.4,
-        }, '-=0.3');
-      });
-    }, sectionRef);
+    tl.fromTo(el.querySelector('h2'), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 })
+      .fromTo(el.querySelector('.skills-subtitle'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3');
 
-    return () => ctx.revert();
+    el.querySelectorAll('.skill-category').forEach((category) => {
+      const header = category.querySelector('.category-header');
+      const cards = category.querySelectorAll('.skill-card');
+
+      tl.fromTo(header, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
+        .fromTo(cards, { opacity: 0, y: 30, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, stagger: 0.05, duration: 0.4 }, '-=0.3');
+    });
+
+    return () => tl.revert();
   }, []);
 
   return (

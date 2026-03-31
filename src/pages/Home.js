@@ -21,20 +21,30 @@ function Home() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const el = sectionRef.current;
+    if (!el) return;
 
-      tl.from('.avatar', { opacity: 0, scale: 0.8, duration: 0.8 })
-        .from('.home h1', { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
-        .from('.headline', { opacity: 0, y: 30, duration: 0.7 }, '-=0.3')
-        .from('.short-intro', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
-        .from('.home-buttons a', { opacity: 0, y: 15, stagger: 0.1, duration: 0.5 }, '-=0.2')
-        .from('.value-grid > div', { opacity: 0, y: 40, stagger: 0.15, duration: 0.7 }, '-=0.2')
-        .from('.soft-skills', { opacity: 0, y: 40, duration: 0.7 }, '-=0.3')
-        .from('.soft-skills li', { opacity: 0, x: -20, stagger: 0.1, duration: 0.5 }, '-=0.3');
-    }, sectionRef);
+    const avatar = el.querySelector('.avatar');
+    const h1 = el.querySelector('h1');
+    const headline = el.querySelector('.headline');
+    const intro = el.querySelector('.short-intro');
+    const buttons = el.querySelectorAll('.home-buttons a');
+    const valueCards = el.querySelectorAll('.value-grid > div');
+    const softSkills = el.querySelector('.soft-skills');
+    const softItems = el.querySelectorAll('.soft-skills li');
 
-    return () => ctx.revert();
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    tl.fromTo(avatar, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.8 })
+      .fromTo(h1, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
+      .fromTo(headline, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+      .fromTo(intro, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+      .fromTo(buttons, { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.5 }, '-=0.2')
+      .fromTo(valueCards, { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: 0.15, duration: 0.7 }, '-=0.2')
+      .fromTo(softSkills, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+      .fromTo(softItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.1, duration: 0.5 }, '-=0.3');
+
+    return () => tl.revert();
   }, []);
 
   return (

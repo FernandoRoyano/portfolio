@@ -10,15 +10,16 @@ function Projects() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const el = sectionRef.current;
+    if (!el) return;
 
-      tl.from('h2', { opacity: 0, y: 30, duration: 0.7 })
-        .from('.projects-subtitle', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
-        .from('.project-card', { opacity: 0, y: 50, stagger: 0.12, duration: 0.7 }, '-=0.2');
-    }, sectionRef);
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    return () => ctx.revert();
+    tl.fromTo(el.querySelector('h2'), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 })
+      .fromTo(el.querySelector('.projects-subtitle'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+      .fromTo(el.querySelectorAll('.project-card'), { opacity: 0, y: 50 }, { opacity: 1, y: 0, stagger: 0.12, duration: 0.7 }, '-=0.2');
+
+    return () => tl.revert();
   }, []);
 
   return (
