@@ -11,6 +11,13 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: padding 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.header-scrolled {
+  padding: 0.7rem 3rem;
+  background: rgba(250, 250, 250, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .header-left {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import {
   PiHandshake,
@@ -12,14 +12,68 @@ import {
   PiUsersThree,
   PiFileText
 } from 'react-icons/pi';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Home.css';
 import { useTranslation } from 'react-i18next';
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Home() {
   const { t } = useTranslation();
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      tl.from('.avatar', { opacity: 0, scale: 0.8, duration: 0.8 })
+        .from('.home h1', { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
+        .from('.headline', { opacity: 0, y: 30, duration: 0.7 }, '-=0.3')
+        .from('.short-intro', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
+        .from('.home-buttons a', { opacity: 0, y: 15, stagger: 0.1, duration: 0.5 }, '-=0.2');
+
+      gsap.from('.value-grid > div', {
+        scrollTrigger: {
+          trigger: '.value-grid',
+          start: 'top 85%',
+        },
+        opacity: 0,
+        y: 40,
+        stagger: 0.15,
+        duration: 0.7,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.soft-skills', {
+        scrollTrigger: {
+          trigger: '.soft-skills',
+          start: 'top 85%',
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.7,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.soft-skills li', {
+        scrollTrigger: {
+          trigger: '.soft-skills',
+          start: 'top 80%',
+        },
+        opacity: 0,
+        x: -20,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: 'power3.out',
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="home">
+    <section className="home" ref={sectionRef}>
       <img
         src="/images/avatar.png"
         alt="Fernando Royano"

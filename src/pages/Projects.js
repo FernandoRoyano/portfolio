@@ -1,14 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PiArrowRight, PiCaretDown, PiCaretUp } from 'react-icons/pi';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Projects.css';
 import projects from '../data/projectsData';
 import { useTranslation } from 'react-i18next';
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Projects() {
   const { t } = useTranslation();
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.projects-section h2', {
+        scrollTrigger: { trigger: '.projects-section', start: 'top 80%' },
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.projects-subtitle', {
+        scrollTrigger: { trigger: '.projects-section', start: 'top 75%' },
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.project-card', {
+        scrollTrigger: { trigger: '.projects-grid', start: 'top 85%' },
+        opacity: 0,
+        y: 50,
+        stagger: 0.12,
+        duration: 0.7,
+        ease: 'power3.out',
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="projects-section">
+    <section className="projects-section" ref={sectionRef}>
       <h2>{t('projects.title')}</h2>
       <p className="projects-subtitle">{t('projects.subtitle', 'Proyectos reales para clientes y startups')}</p>
       <div className="projects-grid">

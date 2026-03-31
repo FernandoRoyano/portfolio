@@ -129,31 +129,6 @@
   color: #1a1a2e;
 }
 
-/* ── Scroll-driven reveal animation ── */
-@supports (animation-timeline: view()) {
-  .skill-card {
-    animation: skillReveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 100%;
-  }
-
-  @keyframes skillReveal {
-    from {
-      opacity: 0;
-      transform: translateY(30px) scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-}
-
-@supports not (animation-timeline: view()) {
-  .skill-card {
-    opacity: 1;
-  }
-}
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
