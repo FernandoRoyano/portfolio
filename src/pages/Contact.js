@@ -18,39 +18,22 @@ function Contact() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.contact-section h2', {
-        scrollTrigger: { trigger: '.contact-section', start: 'top 80%' },
-        opacity: 0,
-        y: 30,
-        duration: 0.7,
-        ease: 'power3.out',
-      });
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      gsap.from('.contact-section > p', {
-        scrollTrigger: { trigger: '.contact-section', start: 'top 75%' },
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        ease: 'power3.out',
-      });
-
-      gsap.from('.contact-form input, .contact-form textarea, .contact-form button', {
-        scrollTrigger: { trigger: '.contact-form', start: 'top 85%' },
-        opacity: 0,
-        y: 25,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power3.out',
-      });
-
-      gsap.from('.contact-links a', {
-        scrollTrigger: { trigger: '.contact-links', start: 'top 90%' },
-        opacity: 0,
-        y: 15,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power3.out',
-      });
+      tl.from('h2', { opacity: 0, y: 30, duration: 0.7 })
+        .from('.contact-section > p', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
+        .from('.contact-form input, .contact-form textarea, .contact-form button', {
+          opacity: 0,
+          y: 25,
+          stagger: 0.1,
+          duration: 0.5,
+        }, '-=0.2')
+        .from('.contact-links a', {
+          opacity: 0,
+          y: 15,
+          stagger: 0.1,
+          duration: 0.5,
+        }, '-=0.2');
     }, sectionRef);
 
     return () => ctx.revert();

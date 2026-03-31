@@ -20,39 +20,32 @@ function Skills() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.skills-section h2', {
-        scrollTrigger: { trigger: '.skills-section', start: 'top 80%' },
-        opacity: 0,
-        y: 30,
-        duration: 0.7,
-        ease: 'power3.out',
-      });
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      gsap.from('.skills-subtitle', {
-        scrollTrigger: { trigger: '.skills-section', start: 'top 75%' },
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        ease: 'power3.out',
-      });
+      tl.from('h2', { opacity: 0, y: 30, duration: 0.7 })
+        .from('.skills-subtitle', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3');
 
       const categories = gsap.utils.toArray('.skill-category');
-      categories.forEach((category) => {
+      categories.forEach((category, i) => {
+        const delay = i * 0.15;
+
         gsap.from(category.querySelector('.category-header'), {
-          scrollTrigger: { trigger: category, start: 'top 85%' },
+          scrollTrigger: { trigger: category, start: 'top 90%' },
           opacity: 0,
           y: 20,
           duration: 0.5,
+          delay,
           ease: 'power3.out',
         });
 
         gsap.from(category.querySelectorAll('.skill-card'), {
-          scrollTrigger: { trigger: category, start: 'top 80%' },
+          scrollTrigger: { trigger: category, start: 'top 85%' },
           opacity: 0,
           y: 30,
           scale: 0.95,
           stagger: 0.06,
           duration: 0.5,
+          delay,
           ease: 'power3.out',
         });
       });

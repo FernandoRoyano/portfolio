@@ -14,24 +14,13 @@ function Projects() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.projects-section h2', {
-        scrollTrigger: { trigger: '.projects-section', start: 'top 80%' },
-        opacity: 0,
-        y: 30,
-        duration: 0.7,
-        ease: 'power3.out',
-      });
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      gsap.from('.projects-subtitle', {
-        scrollTrigger: { trigger: '.projects-section', start: 'top 75%' },
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        ease: 'power3.out',
-      });
+      tl.from('h2', { opacity: 0, y: 30, duration: 0.7 })
+        .from('.projects-subtitle', { opacity: 0, y: 20, duration: 0.6 }, '-=0.3');
 
       gsap.from('.project-card', {
-        scrollTrigger: { trigger: '.projects-grid', start: 'top 85%' },
+        scrollTrigger: { trigger: '.projects-grid', start: 'top 90%' },
         opacity: 0,
         y: 50,
         stagger: 0.12,
