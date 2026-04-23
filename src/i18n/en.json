@@ -36,9 +36,9 @@
         "fullDescription": "CRM system developed for comprehensive client management in gyms and personal training centers. Includes dashboard with metrics, client tracking, performance analytics and training plan management."
       },
       {
-        "name": "Parent Fit",
-        "shortDescription": "Online academy for busy parents who want to get fit.",
-        "fullDescription": "Platform built in Next.js offering routines, videos and fitness resources tailored to families with limited time."
+        "name": "TrainHub",
+        "shortDescription": "All-in-one platform for personal trainers: client management, routines and payments.",
+        "fullDescription": "SaaS for personal trainers with a visual routine builder, nutrition plans, real-time progress tracking, integrated chat and automatic billing via Stripe. Clients access everything through a PWA on any device."
       },
       {
         "name": "WellnessReal",
