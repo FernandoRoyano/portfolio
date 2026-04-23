@@ -59,14 +59,16 @@ const projects = [
         shortDescription: 'Web de asesoría y comunidad para amantes del caniche.',
         fullDescription: 'Sitio web informativo y emocional para una asesora especializada en el mundo del caniche. Incluye servicios de consultoría, información sobre cría responsable, comunidad premium y conexión con criaderos legales.',
         technologies: ['Next.js', 'React', 'TypeScript'],
-        link: 'https://canichesconamor.com'
+        link: 'https://canichesconamor.com',
+        image: '/projects/caniches.png'
       },
       {
         name: 'Escapa Cantabria',
         shortDescription: 'Empresa de alquiler de autocaravanas en Santander con más de 15 años de experiencia.',
         fullDescription: 'Escapa Cantabria es una empresa especializada en el alquiler de autocaravanas, ofreciendo vehículos totalmente equipados para que los clientes solo tengan que hacer su maleta. Con más de 15 años de experiencia viajando por España y Europa, proporcionan asesoramiento continuo y un servicio de alquiler todo incluido, garantizando comodidad y libertad en cada viaje.',
         technologies: ['Next.js', 'React', 'TypeScript'],
-        link: 'https://autocaravanasescapacantabria.com/'
+        link: 'https://autocaravanasescapacantabria.com/',
+        image: '/projects/escapa.png'
       }
       
       
