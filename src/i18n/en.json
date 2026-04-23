@@ -1,26 +1,26 @@
 {
   "home": {
     "title": "Hi, I'm Fernando",
-    "available": "Available for new projects",
+    "available": "Available for new work",
     "headline": "Product Builder & Full Stack Developer",
-    "subheadline": "I build complete web solutions from concept to launch.",
-    "intro": "I combine design, frontend and backend development, and business vision to create web projects with real impact.",
+    "subheadline": "End-to-end web products, from first sketch to launch.",
+    "intro": "Design, full-stack engineering and a product mindset — so what I build actually moves the business.",
     "downloadCV": "View / Download CV",
     "softSkills": {
-      "title": "Soft skills that make the difference",
-      "vision": "Strategic vision for business and product",
-      "systems": "System, process and digital flow design",
-      "communication": "Clear communication and sales ability",
-      "focus": "Focus on conversion, acquisition and scalability",
-      "teamwork": "Collaborative work with technical and non-technical profiles"
+      "title": "Beyond the code",
+      "vision": "Strategic product and business thinking",
+      "systems": "Systems thinking: processes and digital flows",
+      "communication": "Clear communication — comfortable pitching ideas",
+      "focus": "Focused on conversion, growth and scale",
+      "teamwork": "At ease with both technical and non-technical teams"
     },
     "values": {
-      "collaborate": "I collaborate",
-      "collaborateText": "I enjoy working with people who have an idea and helping them make it real.",
-      "product": "I think in product",
-      "productText": "I don't just code. I get involved in experience, value and strategic thinking.",
-      "ai": "I build with AI",
-      "aiText": "I use modern tools and artificial intelligence to speed up and enhance development."
+      "collaborate": "Partner, not vendor",
+      "collaborateText": "I work side by side with founders and teams who have a clear vision — listening, suggesting, building together.",
+      "product": "Product-first thinking",
+      "productText": "I don't just ship code. I care about the experience, the business value, and what comes next.",
+      "ai": "AI as a force multiplier",
+      "aiText": "I use AI to ship faster and smarter — not to replace craft, but to amplify it."
     }
   },
   "projects": {
