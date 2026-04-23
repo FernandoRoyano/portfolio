@@ -366,6 +366,124 @@
   flex-shrink: 0;
 }
 
+/* ── Education ── */
+.education {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  border-radius: 20px;
+  max-width: 640px;
+  width: 100%;
+  text-align: left;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.education::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: var(--gradient-glow);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.education h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text);
+  position: relative;
+}
+
+.education-icon {
+  font-size: 1.4em;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.education-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  position: relative;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  opacity: 0.3;
+}
+
+.education-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+  padding-left: 2rem;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  box-shadow: 0 0 0 3px var(--bg-elevated), 0 0 12px var(--accent-glow);
+}
+
+.education-item:hover {
+  transform: translateX(4px);
+}
+
+.education-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.education-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.15rem;
+}
+
+.education-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.education-place {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .home {
@@ -389,7 +507,8 @@
     gap: 1rem;
   }
 
-  .soft-skills {
+  .soft-skills,
+  .education {
     padding: 1.8rem 1.5rem;
   }
 

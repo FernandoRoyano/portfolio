@@ -21,6 +21,31 @@
       "productText": "No solo programo. Me involucro en la experiencia, el valor y el negocio.",
       "ai": "Aprovecho la IA",
       "aiText": "Uso herramientas de IA para potenciar los procesos creativos y técnicos."
+    },
+    "education": {
+      "title": "Formación",
+      "items": [
+        {
+          "period": "2024 – 2026",
+          "title": "Técnico Superior en Desarrollo de Aplicaciones Web (DAW)",
+          "place": "Prometeo The Power"
+        },
+        {
+          "period": "2023",
+          "title": "Bootcamp de Desarrollo Frontend",
+          "place": "GammaTech"
+        },
+        {
+          "period": "2009 – 2011",
+          "title": "Técnico Superior en Administración de Sistemas Informáticos (ASI)",
+          "place": "IES Augusto González Linares"
+        },
+        {
+          "period": "2007 – 2009",
+          "title": "Técnico en Explotación de Sistemas Informáticos",
+          "place": "IES María Inmaculada"
+        }
+      ]
     }
   },
   "projects": {

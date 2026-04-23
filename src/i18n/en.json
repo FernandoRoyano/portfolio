@@ -21,6 +21,31 @@
       "productText": "I don't just ship code. I care about the experience, the business value, and what comes next.",
       "ai": "AI as a force multiplier",
       "aiText": "I use AI to ship faster and smarter — not to replace craft, but to amplify it."
+    },
+    "education": {
+      "title": "Education",
+      "items": [
+        {
+          "period": "2024 – 2026",
+          "title": "Higher Technician in Web Application Development (DAW)",
+          "place": "Prometeo The Power"
+        },
+        {
+          "period": "2023",
+          "title": "Frontend Development Bootcamp",
+          "place": "GammaTech"
+        },
+        {
+          "period": "2009 – 2011",
+          "title": "Higher Technician in IT Systems Administration (ASI)",
+          "place": "IES Augusto González Linares"
+        },
+        {
+          "period": "2007 – 2009",
+          "title": "Technician in IT Systems Operation",
+          "place": "IES María Inmaculada"
+        }
+      ]
     }
   },
   "projects": {

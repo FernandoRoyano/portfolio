@@ -11,7 +11,8 @@ import {
   PiTarget,
   PiUsersThree,
   PiFileText,
-  PiArrowRight
+  PiArrowRight,
+  PiGraduationCap
 } from 'react-icons/pi';
 import gsap from 'gsap';
 import './Home.css';
@@ -34,6 +35,8 @@ function Home() {
     const valueCards = el.querySelectorAll('.value-card');
     const softSkills = el.querySelector('.soft-skills');
     const softItems = el.querySelectorAll('.soft-skills li');
+    const education = el.querySelector('.education');
+    const eduItems = el.querySelectorAll('.education-item');
 
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
@@ -45,10 +48,14 @@ function Home() {
       .fromTo(buttons, { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.5 }, '-=0.2')
       .fromTo(valueCards, { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: 0.12, duration: 0.7 }, '-=0.2')
       .fromTo(softSkills, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
-      .fromTo(softItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.08, duration: 0.4 }, '-=0.4');
+      .fromTo(softItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.08, duration: 0.4 }, '-=0.4')
+      .fromTo(education, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+      .fromTo(eduItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.1, duration: 0.4 }, '-=0.4');
 
     return () => tl.revert();
   }, []);
+
+  const eduItems = t('home.education.items', { returnObjects: true }) || [];
 
   return (
     <section className="home" ref={sectionRef}>
@@ -115,6 +122,21 @@ function Home() {
           <li><PiMegaphone className="list-icon" /> {t('home.softSkills.communication')}</li>
           <li><PiTarget className="list-icon" /> {t('home.softSkills.focus')}</li>
           <li><PiUsersThree className="list-icon" /> {t('home.softSkills.teamwork')}</li>
+        </ul>
+      </div>
+
+      <div className="education">
+        <h3><PiGraduationCap className="education-icon" /> {t('home.education.title')}</h3>
+        <ul className="education-timeline">
+          {Array.isArray(eduItems) && eduItems.map((item, i) => (
+            <li key={i} className="education-item">
+              <span className="education-period">{item.period}</span>
+              <div className="education-body">
+                <span className="education-title">{item.title}</span>
+                <span className="education-place">{item.place}</span>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </section>
