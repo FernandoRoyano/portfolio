@@ -7,12 +7,12 @@ const projects = [
       link: 'https://github.com/FernandoRoyano/HealthyFitness'
     },
     {
-      name: 'Parent Fit',
-      shortDescription: 'Academia online para padres y madres con poco tiempo que quieren ponerse en forma.',
+      name: 'TrainHub',
+      shortDescription: 'Plataforma integral para entrenadores personales: gestión de clientes, rutinas y pagos.',
       fullDescription:
-        'Plataforma desarrollada con Next.js donde los usuarios acceden a entrenamientos, planificación y contenido exclusivo pensado para personas con poco tiempo.',
-      technologies: ['Next.js'],
-      link: 'https://github.com/FernandoRoyano/parent-fit'
+        'SaaS para entrenadores personales con constructor visual de rutinas, planes nutricionales, seguimiento de progreso en tiempo real, chat integrado y cobros automáticos con Stripe. Los clientes acceden mediante una PWA desde cualquier dispositivo.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Stripe', 'PWA'],
+      link: 'https://train-hub-five.vercel.app'
     },
     {
       name: 'WellnessReal',
@@ -20,7 +20,8 @@ const projects = [
       fullDescription:
         'Plataforma profesional de fitness online que ofrece planes personalizados de entrenamiento, nutrición y osteopatía. Incluye app móvil con vídeos demostrativos, seguimiento automático de progreso y ajustes semanales por parte de profesionales.',
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-      link: 'https://wellnessreal.es'
+      link: 'https://wellnessreal.es',
+      image: '/projects/wellnessreal.png'
     },
     {
         name: "Caservi",
@@ -34,21 +35,24 @@ const projects = [
         shortDescription: 'Plataforma corporativa para una startup tecnológica especializada en soluciones digitales.',
         fullDescription: 'Sitio web profesional desarrollado con Next.js y TypeScript para presentar los servicios de CodeConnect. Incluye diseño moderno, navegación responsive, automatización de procesos y formulario de contacto funcional con Nodemailer. Enfocado en IA, automatización y escalabilidad.',
         technologies: ['Next.js', 'React', 'TypeScript', 'CSS Modules', 'Nodemailer'],
-        link: 'https://codeconnect-ten.vercel.app'
+        link: 'https://codeconnect-ten.vercel.app',
+        image: '/projects/codeconnect.png'
       },
       {
         name: 'DR Nutrición',
         shortDescription: 'Plataforma de consultoría online especializada en salud digestiva.',
         fullDescription: 'Web profesional para un especialista en nutrición clínica y patología digestiva. Incluye planes de seguimiento personalizados (básico, intermedio y avanzado), secciones de especialidades (colitis ulcerosa, SIBO, intolerancias), testimonios de pacientes y sistema de contacto directo.',
         technologies: ['Next.js', 'React', 'TypeScript', 'CSS'],
-        link: 'https://patologia-digestiva.vercel.app'
+        link: 'https://patologia-digestiva.vercel.app',
+        image: '/projects/dr-nutricion.png'
       },
       {
         name: 'Antea Salud',
         shortDescription: 'Servicio de entrenamiento y rehabilitación a domicilio para personas mayores.',
         fullDescription: 'Landing profesional para un servicio especializado en gerontología y rehabilitación física a domicilio. Enfoque humano y accesible con testimonios, comparativa de planes, formulario guiado y diseño pensado para transmitir confianza tanto a mayores como a sus familias.',
         technologies: ['Next.js', 'React', 'TypeScript', 'CSS Modules', 'EmailJS'],
-        link: 'https://anteasalud-landing.vercel.app'
+        link: 'https://anteasalud-landing.vercel.app',
+        image: '/projects/antea-salud.png'
       },
       {
         name: 'Caniches con Amor',

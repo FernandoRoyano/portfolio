@@ -40,26 +40,39 @@ function ProjectCard({ project, index }) {
   const { t } = useTranslation();
 
   return (
-    <div className="project-card">
-      <div className="project-card-header">
-        <h3>{t(`projects.items.${index}.name`)}</h3>
-        {project.link && (
-          <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-card-link">
-            Ver <PiArrowRight />
-          </a>
-        )}
-      </div>
-      <p>{t(`projects.items.${index}.shortDescription`)}</p>
-      <div className="tech-tags">
-        {project.technologies.map((tech, i) => (
-          <span key={i} className="tech-tag">{tech}</span>
-        ))}
-      </div>
-      <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
-        {expanded ? <><PiCaretUp /> {t('projects.hide')}</> : <><PiCaretDown /> {t('projects.show')}</>}
-      </button>
-      <div className={`project-details ${expanded ? 'expanded' : ''}`}>
-        <p>{t(`projects.items.${index}.fullDescription`)}</p>
+    <div className={`project-card ${project.image ? 'has-image' : ''}`}>
+      {project.image && (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-thumb"
+          aria-label={`Abrir ${t(`projects.items.${index}.name`)}`}
+        >
+          <img src={project.image} alt={t(`projects.items.${index}.name`)} loading="lazy" />
+        </a>
+      )}
+      <div className="project-card-body">
+        <div className="project-card-header">
+          <h3>{t(`projects.items.${index}.name`)}</h3>
+          {project.link && (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-card-link">
+              Ver <PiArrowRight />
+            </a>
+          )}
+        </div>
+        <p>{t(`projects.items.${index}.shortDescription`)}</p>
+        <div className="tech-tags">
+          {project.technologies.map((tech, i) => (
+            <span key={i} className="tech-tag">{tech}</span>
+          ))}
+        </div>
+        <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
+          {expanded ? <><PiCaretUp /> {t('projects.hide')}</> : <><PiCaretDown /> {t('projects.show')}</>}
+        </button>
+        <div className={`project-details ${expanded ? 'expanded' : ''}`}>
+          <p>{t(`projects.items.${index}.fullDescription`)}</p>
+        </div>
       </div>
     </div>
   );
