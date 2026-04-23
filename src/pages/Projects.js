@@ -9,6 +9,16 @@ function Projects() {
   const { t } = useTranslation();
   const sectionRef = useRef(null);
 
+  const sortedProjects = projects
+    .map((project, originalIndex) => ({ project, originalIndex }))
+    .sort((a, b) => {
+      const aHas = !!a.project.image;
+      const bHas = !!b.project.image;
+      if (aHas && !bHas) return -1;
+      if (!aHas && bHas) return 1;
+      return 0;
+    });
+
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -27,8 +37,8 @@ function Projects() {
       <h2>{t('projects.title')}</h2>
       <p className="projects-subtitle">{t('projects.subtitle', 'Proyectos reales para clientes y startups')}</p>
       <div className="projects-grid">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} index={index} />
+        {sortedProjects.map(({ project, originalIndex }) => (
+          <ProjectCard key={originalIndex} project={project} index={originalIndex} />
         ))}
       </div>
     </section>
