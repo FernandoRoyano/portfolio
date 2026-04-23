@@ -12,7 +12,8 @@ const projects = [
       fullDescription:
         'SaaS para entrenadores personales con constructor visual de rutinas, planes nutricionales, seguimiento de progreso en tiempo real, chat integrado y cobros automáticos con Stripe. Los clientes acceden mediante una PWA desde cualquier dispositivo.',
       technologies: ['Next.js', 'React', 'TypeScript', 'Stripe', 'PWA'],
-      link: 'https://train-hub-five.vercel.app'
+      link: 'https://train-hub-five.vercel.app',
+      image: '/projects/trainhub.png'
     },
     {
       name: 'WellnessReal',
