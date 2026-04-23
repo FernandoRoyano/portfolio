@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeToggle from './ThemeToggle';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,19 +25,30 @@ function Header() {
 
   return (
     <header className="header" ref={headerRef}>
-      <div className="logo">Fernando Royano · Product Builder</div>
-      <LanguageSwitcher />
-      {/* Botón hamburguesa */}
-      <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-        ☰
-      </button>
+      <div className="logo">
+        <span className="logo-dot" aria-hidden="true"></span>
+        <span className="logo-text">Fernando Royano</span>
+        <span className="logo-sub">· Product Builder</span>
+      </div>
 
       <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-        <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
-        <Link to="/skills" onClick={() => setMenuOpen(false)}>Habilidades</Link>
-        <Link to="/projects" onClick={() => setMenuOpen(false)}>Proyectos</Link>
-        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contacto</Link>
+        <NavLink to="/" end onClick={() => setMenuOpen(false)}>Inicio</NavLink>
+        <NavLink to="/skills" onClick={() => setMenuOpen(false)}>Habilidades</NavLink>
+        <NavLink to="/projects" onClick={() => setMenuOpen(false)}>Proyectos</NavLink>
+        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contacto</NavLink>
       </nav>
+
+      <div className="header-actions">
+        <LanguageSwitcher />
+        <ThemeToggle />
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          ☰
+        </button>
+      </div>
     </header>
   );
 }

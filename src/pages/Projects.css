@@ -1,26 +1,25 @@
 /* ── Projects Section ── */
 .projects-section {
   padding: 6rem 2rem;
-  background: #fafafa;
   min-height: 100vh;
+  position: relative;
 }
 
 .projects-section h2 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
   font-weight: 800;
   text-align: center;
   margin-bottom: 1rem;
-  color: #1a1a2e;
+  color: var(--text);
+  letter-spacing: -0.03em;
 }
 
 .projects-subtitle {
   text-align: center;
-  color: #888;
-  font-size: 1.05rem;
-  margin-bottom: 4rem;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin: 0 auto 4rem;
+  max-width: 520px;
 }
 
 /* ── Grid ── */
@@ -28,16 +27,18 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 1.5rem;
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
 /* ── Card ── */
 .project-card {
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
-  padding: 2rem;
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.8rem;
   text-align: left;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
@@ -51,19 +52,40 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #00adb5, #00d4ff);
+  background: var(--gradient-primary);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-glow);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .project-card:hover::before {
   transform: scaleX(1);
 }
 
+.project-card:hover::after {
+  opacity: 0.6;
+}
+
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-accent);
+}
+
+/* ── Card content sits above glow ── */
+.project-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Card Header ── */
@@ -72,12 +94,13 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 0.8rem;
+  gap: 1rem;
 }
 
 .project-card h3 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--text);
   letter-spacing: -0.02em;
 }
 
@@ -86,20 +109,20 @@
   align-items: center;
   gap: 0.3rem;
   font-size: 0.85rem;
-  color: #00adb5;
+  color: var(--accent);
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
 
 .project-card-link:hover {
-  color: #008b92;
-  gap: 0.5rem;
+  color: var(--accent-2);
+  gap: 0.55rem;
 }
 
 .project-card > p {
-  color: #666;
+  color: var(--text-muted);
   font-size: 0.95rem;
   margin: 0 0 1rem 0;
 }
@@ -113,32 +136,35 @@
 }
 
 .tech-tag {
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.25rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.28rem 0.7rem;
   border-radius: 100px;
-  background: #f0f0f0;
-  color: #555;
-  letter-spacing: 0.01em;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  letter-spacing: 0.02em;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* ── Expand Button ── */
 .expand-btn {
   background: none;
   border: none;
-  color: #00adb5;
+  color: var(--accent);
   font-weight: 600;
   cursor: pointer;
   padding: 0;
   font-size: 0.85rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  transition: color 0.2s ease;
+  gap: 0.35rem;
+  transition: color 0.2s ease, gap 0.2s ease;
 }
 
 .expand-btn:hover {
-  color: #008b92;
+  color: var(--accent-2);
+  gap: 0.55rem;
 }
 
 /* ── Details ── */
@@ -147,23 +173,25 @@
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              opacity 0.4s ease;
+              opacity 0.4s ease,
+              padding 0.5s ease,
+              margin 0.5s ease;
 }
 
 .project-details.expanded {
-  max-height: 300px;
+  max-height: 400px;
   opacity: 1;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid var(--border);
 }
 
 .project-details p {
-  color: #555;
+  color: var(--text-muted);
   font-size: 0.9rem;
   margin: 0;
+  line-height: 1.7;
 }
-
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
