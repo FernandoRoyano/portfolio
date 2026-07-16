@@ -5,6 +5,8 @@ SPA en React con soporte bilingüe (ES/EN), tema claro/oscuro y animaciones GSAP
 
 **En producción:** [portfolio-leaq.vercel.app](https://portfolio-leaq.vercel.app)
 
+**Documentación:** [Arquitectura](docs/ARCHITECTURE.md) · [Registro de decisiones](docs/DECISIONS.md)
+
 ---
 
 ## Stack
