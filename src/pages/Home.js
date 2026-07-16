@@ -84,7 +84,7 @@ function Home() {
         <p className="short-intro">{t('home.intro')}</p>
 
         <div className="home-buttons">
-          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" download className="btn btn-primary">
+          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" download="CV_Fernando_Royano.pdf" className="btn btn-primary">
             <PiFileText /> {t('home.downloadCV')} <PiArrowRight className="btn-arrow" />
           </a>
           <a href="https://github.com/FernandoRoyano" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
