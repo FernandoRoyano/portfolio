@@ -8,7 +8,7 @@ import {
   PiClock,
   PiPaperPlaneTilt
 } from 'react-icons/pi';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import gsap from 'gsap';
 import './Contact.css';
 import { useTranslation } from 'react-i18next';
@@ -25,15 +25,19 @@ function Contact() {
     const el = sectionRef.current;
     if (!el) return;
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const mm = gsap.matchMedia();
 
-    tl.fromTo(el.querySelector('h2'), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 })
-      .fromTo(el.querySelector('.contact-subtitle'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
-      .fromTo(el.querySelector('.contact-info'), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.7 }, '-=0.3')
-      .fromTo(el.querySelector('.contact-form-wrapper'), { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.7 }, '-=0.6')
-      .fromTo(el.querySelectorAll('.field, .contact-form button'), { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.4 }, '-=0.4');
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    return () => tl.revert();
+      tl.fromTo(el.querySelector('.section-title'), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 })
+        .fromTo(el.querySelector('.contact-subtitle'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+        .fromTo(el.querySelector('.contact-info'), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.7 }, '-=0.3')
+        .fromTo(el.querySelector('.contact-form-wrapper'), { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.7 }, '-=0.6')
+        .fromTo(el.querySelectorAll('.field, .contact-form button'), { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.4 }, '-=0.4');
+    });
+
+    return () => mm.revert();
   }, []);
 
   const sendEmail = (e) => {
@@ -45,7 +49,7 @@ function Contact() {
       process.env.REACT_APP_EMAILJS_SERVICE_ID,
       process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
       form.current,
-      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      { publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY }
     )
     .then(() => {
       setSent(true);
@@ -62,7 +66,7 @@ function Contact() {
 
   return (
     <section className="contact-section" ref={sectionRef}>
-      <h2>{t('contact.title')}</h2>
+      <h1 className="section-title">{t('contact.title')}</h1>
       <p className="contact-subtitle">{t('contact.subtitle')}</p>
 
       <div className="contact-layout">
