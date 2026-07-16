@@ -9,15 +9,13 @@ function Projects() {
   const { t } = useTranslation();
   const sectionRef = useRef(null);
 
-  const sortedProjects = projects
-    .map((project, originalIndex) => ({ project, originalIndex }))
-    .sort((a, b) => {
-      const aHas = !!a.project.image;
-      const bHas = !!b.project.image;
-      if (aHas && !bHas) return -1;
-      if (!aHas && bHas) return 1;
-      return 0;
-    });
+  const sortedProjects = [...projects].sort((a, b) => {
+    const aHas = !!a.image;
+    const bHas = !!b.image;
+    if (aHas && !bHas) return -1;
+    if (!aHas && bHas) return 1;
+    return 0;
+  });
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -37,17 +35,18 @@ function Projects() {
       <h2>{t('projects.title')}</h2>
       <p className="projects-subtitle">{t('projects.subtitle', 'Proyectos reales para clientes y startups')}</p>
       <div className="projects-grid">
-        {sortedProjects.map(({ project, originalIndex }) => (
-          <ProjectCard key={originalIndex} project={project} index={originalIndex} />
+        {sortedProjects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </section>
   );
 }
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project }) {
   const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation();
+  const name = t(`projects.items.${project.id}.name`);
 
   return (
     <div className={`project-card ${project.image ? 'has-image' : ''}`}>
@@ -57,21 +56,21 @@ function ProjectCard({ project, index }) {
           target="_blank"
           rel="noopener noreferrer"
           className="project-thumb"
-          aria-label={`Abrir ${t(`projects.items.${index}.name`)}`}
+          aria-label={`Abrir ${name}`}
         >
-          <img src={project.image} alt={t(`projects.items.${index}.name`)} loading="lazy" />
+          <img src={project.image} alt={name} loading="lazy" />
         </a>
       )}
       <div className="project-card-body">
         <div className="project-card-header">
-          <h3>{t(`projects.items.${index}.name`)}</h3>
+          <h3>{name}</h3>
           {project.link && (
             <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-card-link">
               Ver <PiArrowRight />
             </a>
           )}
         </div>
-        <p>{t(`projects.items.${index}.shortDescription`)}</p>
+        <p>{t(`projects.items.${project.id}.shortDescription`)}</p>
         <div className="tech-tags">
           {project.technologies.map((tech, i) => (
             <span key={i} className="tech-tag">{tech}</span>
@@ -81,7 +80,7 @@ function ProjectCard({ project, index }) {
           {expanded ? <><PiCaretUp /> {t('projects.hide')}</> : <><PiCaretDown /> {t('projects.show')}</>}
         </button>
         <div className={`project-details ${expanded ? 'expanded' : ''}`}>
-          <p>{t(`projects.items.${index}.fullDescription`)}</p>
+          <p>{t(`projects.items.${project.id}.fullDescription`)}</p>
         </div>
       </div>
     </div>

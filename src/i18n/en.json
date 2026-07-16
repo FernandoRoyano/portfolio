@@ -54,52 +54,52 @@
     "hide": "Hide details",
     "link": "View on GitHub / Demo",
     "tech": "Technologies",
-    "items": [
-      {
+    "items": {
+      "crm-health-fitness": {
         "name": "CRM Health Fitness",
         "shortDescription": "Complete CRM for client management in the fitness industry.",
         "fullDescription": "CRM system developed for comprehensive client management in gyms and personal training centers. Includes dashboard with metrics, client tracking, performance analytics and training plan management."
       },
-      {
+      "trainhub": {
         "name": "TrainHub",
         "shortDescription": "All-in-one platform for personal trainers: client management, routines and payments.",
         "fullDescription": "SaaS for personal trainers with a visual routine builder, nutrition plans, real-time progress tracking, integrated chat and automatic billing via Stripe. Clients access everything through a PWA on any device."
       },
-      {
+      "wellnessreal": {
         "name": "WellnessReal",
         "shortDescription": "Online personal training platform.",
         "fullDescription": "Professional fitness platform with personalized plans, nutrition and osteopathy. Mobile app with videos, progress tracking and weekly adjustments."
       },
-      {
-        "name": "Caservi",
-        "shortDescription": "Air conditioning and renovation company.",
-        "fullDescription": "Corporate landing page using HTML, CSS and pure JavaScript. Showcases installation and minor renovation services."
+      "amuzim": {
+        "name": "Amuzim",
+        "shortDescription": "A music ecosystem for creators and listeners.",
+        "fullDescription": "A platform where creators decide what they share, with whom and why. Discovery across genres and subgenres, editorial, community and career-building tools for artists. I own the architecture, the stack and core engineering decisions."
       },
-      {
+      "codeconnect": {
         "name": "CodeConnect",
         "shortDescription": "Professional platform for digital services.",
         "fullDescription": "Next.js + TypeScript project for a startup. Clean UI, modular sections, process automation explained and contact form via Nodemailer."
       },
-      {
+      "dr-nutricion": {
         "name": "DR Nutrición",
         "shortDescription": "Online digestive health consulting platform.",
         "fullDescription": "Professional website for a clinical nutrition and digestive pathology specialist. Personalized follow-up plans, specialties, patient testimonials and direct contact system."
       },
-      {
+      "antea-salud": {
         "name": "Antea Salud",
         "shortDescription": "In-home training and rehabilitation for seniors.",
         "fullDescription": "Professional landing for a gerontology and in-home physical rehabilitation service. Human-centered approach with testimonials, plan comparison and guided contact form."
       },
-      {
+      "caniches-con-amor": {
         "name": "Caniches con Amor",
         "shortDescription": "Consulting and community for poodle lovers.",
         "fullDescription": "Website for a specialized poodle advisor. Consulting services, responsible breeding info, premium community and trusted breeder connections."
       },
-      {
+      "escapa-cantabria": {
         "name": "Escapa Cantabria",
         "shortDescription": "Motorhome rental in Cantabria.",
         "fullDescription": "Website showcasing fleet, prices and reservations. Clean layout with mobile-friendly navigation."
       }
-    ]
+    }
   }
 }
