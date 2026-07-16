@@ -1,15 +1,10 @@
 {
-  "name": "mi-portfolio",
-  "version": "0.1.0",
+  "name": "fernando-royano-portfolio",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
     "ajv": "^6.12.6",
     "ajv-keywords": "^3.5.2",
-    "aos": "^2.3.4",
     "emailjs-com": "^3.2.0",
     "gsap": "^3.14.2",
     "i18next": "21.10.0",
@@ -20,14 +15,14 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
-    "typescript": "4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src --max-warnings=0"
   },
   "eslintConfig": {
     "extends": [
@@ -51,5 +46,30 @@
     "react-scripts": {
       "typescript": "4.9.5"
     }
+  },
+  "description": "Portfolio personal de Fernando Royano — Product Builder & Full Stack Developer. SPA en React con i18n (ES/EN), tema claro/oscuro y animaciones GSAP.",
+  "author": "Fernando Royano <fernandoroyano@gmail.com> (https://github.com/FernandoRoyano)",
+  "license": "MIT",
+  "homepage": "https://portfolio-leaq.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FernandoRoyano/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FernandoRoyano/portfolio/issues"
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "i18next",
+    "gsap",
+    "spa"
+  ],
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "typescript": "4.9.5"
   }
 }
