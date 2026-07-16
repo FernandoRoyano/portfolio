@@ -6,9 +6,9 @@ import skills from '../data/skillsData';
 import { useTranslation } from 'react-i18next';
 
 const categoryIcons = {
-  Frontend: <PiPaintBrush />,
-  Backend: <PiGearSix />,
-  'IA & Herramientas': <PiRobot />
+  frontend: <PiPaintBrush />,
+  backend: <PiGearSix />,
+  'ai-tools': <PiRobot />
 };
 
 function Skills() {
@@ -37,18 +37,18 @@ function Skills() {
 
   return (
     <section className="skills-section" ref={sectionRef}>
-      <h2>{t('skills.title', 'Stack')}</h2>
-      <p className="skills-subtitle">{t('skills.subtitle', 'Tecnologias con las que trabajo dia a dia')}</p>
-      {Object.entries(skills).map(([category, items]) => (
-        <div key={category} className="skill-category">
+      <h2>{t('skills.title')}</h2>
+      <p className="skills-subtitle">{t('skills.subtitle')}</p>
+      {skills.map(({ id, items }) => (
+        <div key={id} className="skill-category">
           <div className="category-header">
-            <span className="category-icon">{categoryIcons[category]}</span>
-            <h3>{category}</h3>
+            <span className="category-icon" aria-hidden="true">{categoryIcons[id]}</span>
+            <h3>{t(`skills.categories.${id}`)}</h3>
           </div>
           <div className="skills-grid">
-            {items.map((skill, index) => (
-              <div key={index} className="skill-card">
-                <img src={skill.icon} alt={skill.name} />
+            {items.map((skill) => (
+              <div key={skill.name} className="skill-card">
+                <img src={skill.icon} alt={skill.name} width="48" height="48" loading="lazy" />
                 <p>{skill.name}</p>
               </div>
             ))}

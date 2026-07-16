@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './Header.css';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
@@ -7,6 +8,7 @@ import ThemeToggle from './ThemeToggle';
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,11 +33,11 @@ function Header() {
         <span className="logo-sub">· Product Builder</span>
       </div>
 
-      <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-        <NavLink to="/" end onClick={() => setMenuOpen(false)}>Inicio</NavLink>
-        <NavLink to="/skills" onClick={() => setMenuOpen(false)}>Habilidades</NavLink>
-        <NavLink to="/projects" onClick={() => setMenuOpen(false)}>Proyectos</NavLink>
-        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contacto</NavLink>
+      <nav id="main-nav" className={`nav ${menuOpen ? 'open' : ''}`}>
+        <NavLink to="/" end onClick={() => setMenuOpen(false)}>{t('nav.home')}</NavLink>
+        <NavLink to="/skills" onClick={() => setMenuOpen(false)}>{t('nav.skills')}</NavLink>
+        <NavLink to="/projects" onClick={() => setMenuOpen(false)}>{t('nav.projects')}</NavLink>
+        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>{t('nav.contact')}</NavLink>
       </nav>
 
       <div className="header-actions">
@@ -44,7 +46,9 @@ function Header() {
         <button
           className="menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={t('nav.menu')}
+          aria-expanded={menuOpen}
+          aria-controls="main-nav"
         >
           ☰
         </button>

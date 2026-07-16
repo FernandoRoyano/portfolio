@@ -1,4 +1,11 @@
 {
+  "nav": {
+    "home": "Inicio",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "menu": "Abrir menú"
+  },
   "home": {
     "title": "Hola, soy Fernando",
     "available": "Disponible para nuevos proyectos",
@@ -48,12 +55,19 @@
       ]
     }
   },
+  "skills": {
+    "title": "Stack",
+    "subtitle": "Tecnologías con las que trabajo día a día",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "ai-tools": "IA & Herramientas"
+    }
+  },
   "projects": {
     "title": "Proyectos",
     "show": "Ver más",
     "hide": "Ocultar detalles",
-    "link": "Ver en GitHub / Demo",
-    "tech": "Tecnologías",
     "items": {
       "crm-health-fitness": {
         "name": "CRM Health Fitness",
@@ -100,6 +114,28 @@
         "shortDescription": "Alquiler de autocaravanas en Cantabria.",
         "fullDescription": "Web para presentar flota, precios y reservas de autocaravanas. Diseño limpio y navegación directa para usuarios móviles."
       }
-    }
+    },
+    "subtitle": "Proyectos reales para clientes y startups",
+    "view": "Ver",
+    "openAria": "Abrir {{name}}"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Hablemos sobre tu proyecto",
+    "emailLabel": "Email",
+    "locationLabel": "Ubicación",
+    "locationValue": "España · Remoto",
+    "responseLabel": "Respuesta",
+    "responseValue": "Normalmente en 24h",
+    "name": "Tu nombre",
+    "email": "Tu email",
+    "message": "Cuéntame tu idea...",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "Mensaje enviado correctamente",
+    "error": "Error al enviar. Inténtalo más tarde."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados"
   }
 }

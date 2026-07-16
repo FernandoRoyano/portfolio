@@ -62,15 +62,18 @@ function Home() {
       <div className="hero">
         <div className="status-badge">
           <span className="status-dot" aria-hidden="true"></span>
-          <span>{t('home.available', 'Disponible para nuevos proyectos')}</span>
+          <span>{t('home.available')}</span>
         </div>
 
         <div className="avatar-wrapper">
           <div className="avatar-glow" aria-hidden="true"></div>
           <img
-            src="/images/avatar.png"
+            src="/images/avatar.webp"
             alt="Fernando Royano"
             className="avatar"
+            width="140"
+            height="140"
+            fetchpriority="high"
           />
         </div>
 

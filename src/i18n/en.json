@@ -1,4 +1,11 @@
 {
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "menu": "Open menu"
+  },
   "home": {
     "title": "Hi, I'm Fernando",
     "available": "Available for new work",
@@ -48,12 +55,19 @@
       ]
     }
   },
+  "skills": {
+    "title": "Stack",
+    "subtitle": "The tools I work with every day",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "ai-tools": "AI & Tools"
+    }
+  },
   "projects": {
     "title": "Projects",
     "show": "Show more",
     "hide": "Hide details",
-    "link": "View on GitHub / Demo",
-    "tech": "Technologies",
     "items": {
       "crm-health-fitness": {
         "name": "CRM Health Fitness",
@@ -100,6 +114,28 @@
         "shortDescription": "Motorhome rental in Cantabria.",
         "fullDescription": "Website showcasing fleet, prices and reservations. Clean layout with mobile-friendly navigation."
       }
-    }
+    },
+    "subtitle": "Real work for clients and startups",
+    "view": "View",
+    "openAria": "Open {{name}}"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk about your project",
+    "emailLabel": "Email",
+    "locationLabel": "Location",
+    "locationValue": "Spain · Remote",
+    "responseLabel": "Response time",
+    "responseValue": "Usually within 24h",
+    "name": "Your name",
+    "email": "Your email",
+    "message": "Tell me about your idea...",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent successfully",
+    "error": "Something went wrong. Please try again later."
+  },
+  "footer": {
+    "rights": "All rights reserved"
   }
 }

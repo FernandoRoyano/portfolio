@@ -14,8 +14,17 @@ i18n
       en: { translation: en }
     },
     fallbackLng: 'es',
+    supportedLngs: ['es', 'en'],
     interpolation: {
       escapeValue: false
+    },
+    // Una clave ausente devolvía su valor por defecto en silencio, así que el
+    // texto sin traducir pasaba desapercibido. En desarrollo debe cantar.
+    saveMissing: process.env.NODE_ENV === 'development',
+    missingKeyHandler: (lngs, ns, key) => {
+      if (process.env.NODE_ENV === 'development') {
+        console.error(`[i18n] falta la clave "${key}" en: ${lngs.join(', ')}`);
+      }
     }
   });
 

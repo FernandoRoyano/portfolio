@@ -18,6 +18,7 @@ function Contact() {
   const sectionRef = useRef(null);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const [sending, setSending] = useState(false);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -37,50 +38,54 @@ function Contact() {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    if (sending) return;
 
+    setSending(true);
     emailjs.sendForm(
-      'service_zsg0e8k',
-      'template_acck388',
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
       form.current,
-      'YqaBS775_UBQweZfz'
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
     )
     .then(() => {
       setSent(true);
       setError(false);
       form.current.reset();
     })
-    .catch(() => {
+    .catch((err) => {
+      console.error('[Contact:sendEmail] fallo al enviar el formulario', err);
       setError(true);
       setSent(false);
-    });
+    })
+    .finally(() => setSending(false));
   };
 
   return (
     <section className="contact-section" ref={sectionRef}>
-      <h2>{t('contact.title', 'Contacto')}</h2>
-      <p className="contact-subtitle">{t('contact.subtitle', 'Hablemos sobre tu proyecto')}</p>
+      <h2>{t('contact.title')}</h2>
+      <p className="contact-subtitle">{t('contact.subtitle')}</p>
 
       <div className="contact-layout">
         <aside className="contact-info">
           <div className="info-item">
             <div className="info-icon"><PiEnvelopeSimple /></div>
             <div>
-              <span className="info-label">Email</span>
+              <span className="info-label">{t('contact.emailLabel')}</span>
               <a href="mailto:fernandoroyano@gmail.com" className="info-value">fernandoroyano@gmail.com</a>
             </div>
           </div>
           <div className="info-item">
             <div className="info-icon"><PiMapPin /></div>
             <div>
-              <span className="info-label">Ubicación</span>
-              <span className="info-value">España · Remoto</span>
+              <span className="info-label">{t('contact.locationLabel')}</span>
+              <span className="info-value">{t('contact.locationValue')}</span>
             </div>
           </div>
           <div className="info-item">
             <div className="info-icon"><PiClock /></div>
             <div>
-              <span className="info-label">Respuesta</span>
-              <span className="info-value">Normalmente en 24h</span>
+              <span className="info-label">{t('contact.responseLabel')}</span>
+              <span className="info-value">{t('contact.responseValue')}</span>
             </div>
           </div>
 
@@ -98,23 +103,23 @@ function Contact() {
           <form ref={form} className="contact-form" onSubmit={sendEmail}>
             <div className="field">
               <input type="text" name="user_name" id="user_name" placeholder=" " required />
-              <label htmlFor="user_name">{t('contact.name', 'Tu nombre')}</label>
+              <label htmlFor="user_name">{t('contact.name')}</label>
             </div>
             <div className="field">
               <input type="email" name="user_email" id="user_email" placeholder=" " required />
-              <label htmlFor="user_email">{t('contact.email', 'Tu email')}</label>
+              <label htmlFor="user_email">{t('contact.email')}</label>
             </div>
             <div className="field">
               <textarea name="message" id="message" rows="5" placeholder=" " required></textarea>
-              <label htmlFor="message">{t('contact.message', 'Cuéntame tu idea...')}</label>
+              <label htmlFor="message">{t('contact.message')}</label>
             </div>
 
-            <button type="submit">
-              <PiPaperPlaneTilt /> {t('contact.send', 'Enviar mensaje')}
+            <button type="submit" disabled={sending}>
+              <PiPaperPlaneTilt /> {sending ? t('contact.sending') : t('contact.send')}
             </button>
 
-            {sent && <p className="success-msg"><PiCheckCircle /> {t('contact.success', 'Mensaje enviado correctamente')}</p>}
-            {error && <p className="error-msg"><PiWarningCircle /> {t('contact.error', 'Error al enviar. Inténtalo más tarde.')}</p>}
+            {sent && <p className="success-msg" role="status"><PiCheckCircle /> {t('contact.success')}</p>}
+            {error && <p className="error-msg" role="alert"><PiWarningCircle /> {t('contact.error')}</p>}
           </form>
         </div>
       </div>

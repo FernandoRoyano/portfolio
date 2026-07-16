@@ -24,5 +24,9 @@ export function ThemeProvider({ children }) {
 }
 
 export function useTheme() {
-  return useContext(ThemeContext);
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error('[ThemeContext:useTheme] debe usarse dentro de un <ThemeProvider>');
+  }
+  return context;
 }

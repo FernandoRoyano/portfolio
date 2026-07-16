@@ -33,7 +33,7 @@ function Projects() {
   return (
     <section className="projects-section" ref={sectionRef}>
       <h2>{t('projects.title')}</h2>
-      <p className="projects-subtitle">{t('projects.subtitle', 'Proyectos reales para clientes y startups')}</p>
+      <p className="projects-subtitle">{t('projects.subtitle')}</p>
       <div className="projects-grid">
         {sortedProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
@@ -56,7 +56,7 @@ function ProjectCard({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           className="project-thumb"
-          aria-label={`Abrir ${name}`}
+          aria-label={t('projects.openAria', { name })}
         >
           <img src={project.image} alt={name} loading="lazy" />
         </a>
@@ -66,7 +66,7 @@ function ProjectCard({ project }) {
           <h3>{name}</h3>
           {project.link && (
             <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-card-link">
-              Ver <PiArrowRight />
+              {t('projects.view')} <PiArrowRight />
             </a>
           )}
         </div>
@@ -76,10 +76,15 @@ function ProjectCard({ project }) {
             <span key={i} className="tech-tag">{tech}</span>
           ))}
         </div>
-        <button className="expand-btn" onClick={() => setExpanded(!expanded)}>
+        <button
+          className="expand-btn"
+          onClick={() => setExpanded(!expanded)}
+          aria-expanded={expanded}
+          aria-controls={`details-${project.id}`}
+        >
           {expanded ? <><PiCaretUp /> {t('projects.hide')}</> : <><PiCaretDown /> {t('projects.show')}</>}
         </button>
-        <div className={`project-details ${expanded ? 'expanded' : ''}`}>
+        <div id={`details-${project.id}`} className={`project-details ${expanded ? 'expanded' : ''}`}>
           <p>{t(`projects.items.${project.id}.fullDescription`)}</p>
         </div>
       </div>

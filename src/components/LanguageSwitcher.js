@@ -1,17 +1,29 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+const LANGUAGES = [
+  { code: 'es', flag: '🇪🇸', label: 'Español' },
+  { code: 'en', flag: '🇬🇧', label: 'English' }
+];
+
 function LanguageSwitcher() {
   const { i18n } = useTranslation();
-
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang);
-  };
+  const current = i18n.resolvedLanguage || i18n.language;
 
   return (
     <div className="language-switcher">
-      <button onClick={() => changeLanguage('es')}>🇪🇸 ES</button>
-      <button onClick={() => changeLanguage('en')}>🇬🇧 EN</button>
+      {LANGUAGES.map(({ code, flag, label }) => (
+        <button
+          key={code}
+          type="button"
+          lang={code}
+          onClick={() => i18n.changeLanguage(code)}
+          aria-label={label}
+          aria-pressed={current === code}
+        >
+          <span aria-hidden="true">{flag} {code.toUpperCase()}</span>
+        </button>
+      ))}
     </div>
   );
 }
