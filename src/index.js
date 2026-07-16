@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { I18nextProvider } from 'react-i18next';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-import './i18n'; // ⚠️ Carga la configuración
-import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n'; // ⚠️ Importa la instancia de i18n para pasarla al provider
+import i18n from './i18n';
 import { ThemeProvider } from './context/ThemeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,5 +17,3 @@ root.render(
     </ThemeProvider>
   </React.StrictMode>
 );
-
-reportWebVitals();
