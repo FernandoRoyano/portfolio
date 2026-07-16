@@ -102,6 +102,12 @@
   background: var(--surface-hover);
 }
 
+/* El idioma activo se anunciaba con aria-pressed pero no se distinguía a la vista. */
+.language-switcher button[aria-pressed='true'] {
+  color: #fff;
+  background: var(--accent);
+}
+
 /* ── Nav ── */
 .nav {
   display: flex;

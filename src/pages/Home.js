@@ -26,33 +26,40 @@ function Home() {
     const el = sectionRef.current;
     if (!el) return;
 
-    const badge = el.querySelector('.status-badge');
-    const avatar = el.querySelector('.avatar-wrapper');
-    const h1 = el.querySelector('.home-greeting');
-    const headline = el.querySelector('.headline');
-    const intro = el.querySelector('.short-intro');
-    const buttons = el.querySelectorAll('.home-buttons a');
-    const valueCards = el.querySelectorAll('.value-card');
-    const softSkills = el.querySelector('.soft-skills');
-    const softItems = el.querySelectorAll('.soft-skills li');
-    const education = el.querySelector('.education');
-    const eduItems = el.querySelectorAll('.education-item');
+    // Las animaciones solo se construyen si no hay preferencia por reducir
+    // movimiento. Pausar el timeline no valdría: GSAP aplicaría el estado
+    // inicial (opacity 0) y la página quedaría en blanco.
+    const mm = gsap.matchMedia();
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const badge = el.querySelector('.status-badge');
+      const avatar = el.querySelector('.avatar-wrapper');
+      const greeting = el.querySelector('.home-greeting');
+      const headline = el.querySelector('.headline');
+      const intro = el.querySelector('.short-intro');
+      const buttons = el.querySelectorAll('.home-buttons a');
+      const valueCards = el.querySelectorAll('.value-card');
+      const softSkills = el.querySelector('.soft-skills');
+      const softItems = el.querySelectorAll('.soft-skills li');
+      const education = el.querySelector('.education');
+      const educationItems = el.querySelectorAll('.education-item');
 
-    tl.fromTo(badge, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.5 })
-      .fromTo(avatar, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.8 }, '-=0.2')
-      .fromTo(h1, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
-      .fromTo(headline, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.3')
-      .fromTo(intro, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
-      .fromTo(buttons, { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.5 }, '-=0.2')
-      .fromTo(valueCards, { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: 0.12, duration: 0.7 }, '-=0.2')
-      .fromTo(softSkills, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
-      .fromTo(softItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.08, duration: 0.4 }, '-=0.4')
-      .fromTo(education, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
-      .fromTo(eduItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.1, duration: 0.4 }, '-=0.4');
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    return () => tl.revert();
+      tl.fromTo(badge, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.5 })
+        .fromTo(avatar, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.8 }, '-=0.2')
+        .fromTo(greeting, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
+        .fromTo(headline, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.3')
+        .fromTo(intro, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
+        .fromTo(buttons, { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.5 }, '-=0.2')
+        .fromTo(valueCards, { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: 0.12, duration: 0.7 }, '-=0.2')
+        .fromTo(softSkills, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+        .fromTo(softItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.08, duration: 0.4 }, '-=0.4')
+        .fromTo(education, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+        .fromTo(educationItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.1, duration: 0.4 }, '-=0.4');
+    });
+
+    return () => mm.revert();
   }, []);
 
   const eduItems = t('home.education.items', { returnObjects: true }) || [];
@@ -102,23 +109,23 @@ function Home() {
       <div className="value-grid">
         <div className="value-card" data-accent="violet">
           <div className="value-icon-wrapper"><PiHandshake /></div>
-          <h3>{t('home.values.collaborate')}</h3>
+          <h2 className="value-title">{t('home.values.collaborate')}</h2>
           <p>{t('home.values.collaborateText')}</p>
         </div>
         <div className="value-card" data-accent="cyan">
           <div className="value-icon-wrapper"><PiLightbulb /></div>
-          <h3>{t('home.values.product')}</h3>
+          <h2 className="value-title">{t('home.values.product')}</h2>
           <p>{t('home.values.productText')}</p>
         </div>
         <div className="value-card" data-accent="pink">
           <div className="value-icon-wrapper"><PiRobot /></div>
-          <h3>{t('home.values.ai')}</h3>
+          <h2 className="value-title">{t('home.values.ai')}</h2>
           <p>{t('home.values.aiText')}</p>
         </div>
       </div>
 
       <div className="soft-skills">
-        <h3><PiBrain className="soft-skills-icon" /> {t('home.softSkills.title')}</h3>
+        <h2 className="soft-skills-heading"><PiBrain className="soft-skills-icon" /> {t('home.softSkills.title')}</h2>
         <ul>
           <li><PiBinoculars className="list-icon" /> {t('home.softSkills.vision')}</li>
           <li><PiTreeStructure className="list-icon" /> {t('home.softSkills.systems')}</li>
@@ -129,7 +136,7 @@ function Home() {
       </div>
 
       <div className="education">
-        <h3><PiGraduationCap className="education-icon" /> {t('home.education.title')}</h3>
+        <h2 className="education-heading"><PiGraduationCap className="education-icon" /> {t('home.education.title')}</h2>
         <ul className="education-timeline">
           {Array.isArray(eduItems) && eduItems.map((item, i) => (
             <li key={i} className="education-item">

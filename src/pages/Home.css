@@ -277,7 +277,7 @@
   transform: scale(1.05);
 }
 
-.value-card h3 {
+.value-card .value-title {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
@@ -318,7 +318,7 @@
   opacity: 0.6;
 }
 
-.soft-skills h3 {
+.soft-skills .soft-skills-heading {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -394,7 +394,7 @@
   opacity: 0.5;
 }
 
-.education h3 {
+.education .education-heading {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1.8rem;

@@ -122,6 +122,18 @@ img {
   display: block;
 }
 
+/* ── Foco visible ──
+   Solo con teclado: :focus-visible no dispara al hacer clic con el ratón.
+   El outline sigue el border-radius del elemento en navegadores modernos. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* ── Utility: gradient text ── */
 .gradient-text {
   background: var(--gradient-text);
@@ -151,4 +163,20 @@ img {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+
+/* ── Reduced motion ──
+   GSAP se desactiva por su lado con matchMedia (ver los useEffect de las
+   páginas). Esto cubre lo que vive solo en CSS: los pulsos infinitos, las
+   transiciones de hover y el scroll suave. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
 }

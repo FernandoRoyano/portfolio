@@ -27,7 +27,7 @@ describe('Projects', () => {
 
   it('ordena delante los proyectos con captura', () => {
     renderProjects();
-    const names = screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent);
+    const names = screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent);
     const withImage = projectsData.filter((p) => p.image).length;
     const firstBlock = names.slice(0, withImage);
 

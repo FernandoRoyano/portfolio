@@ -21,18 +21,25 @@ function Projects() {
     const el = sectionRef.current;
     if (!el) return;
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    // Las animaciones solo se construyen si no hay preferencia por reducir
+    // movimiento. Pausar el timeline no valdría: GSAP aplicaría el estado
+    // inicial (opacity 0) y la página quedaría en blanco.
+    const mm = gsap.matchMedia();
 
-    tl.fromTo(el.querySelector('h2'), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 })
-      .fromTo(el.querySelector('.projects-subtitle'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
-      .fromTo(el.querySelectorAll('.project-card'), { opacity: 0, y: 50 }, { opacity: 1, y: 0, stagger: 0.12, duration: 0.7 }, '-=0.2');
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    return () => tl.revert();
+      tl.fromTo(el.querySelector('.section-title'), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 })
+        .fromTo(el.querySelector('.projects-subtitle'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+        .fromTo(el.querySelectorAll('.project-card'), { opacity: 0, y: 50 }, { opacity: 1, y: 0, stagger: 0.12, duration: 0.7 }, '-=0.2');
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
     <section className="projects-section" ref={sectionRef}>
-      <h2>{t('projects.title')}</h2>
+      <h1 className="section-title">{t('projects.title')}</h1>
       <p className="projects-subtitle">{t('projects.subtitle')}</p>
       <div className="projects-grid">
         {sortedProjects.map((project) => (
@@ -63,7 +70,7 @@ function ProjectCard({ project }) {
       )}
       <div className="project-card-body">
         <div className="project-card-header">
-          <h3>{name}</h3>
+          <h2 className="project-title">{name}</h2>
           {project.link && (
             <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-card-link">
               {t('projects.view')} <PiArrowRight />
