@@ -162,6 +162,17 @@ a.info-value:hover {
   position: relative;
 }
 
+/* Campo trampa para bots. Se saca del flujo en lugar de usar display:none,
+   que algunos bots detectan y saltan. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .field input,
 .field textarea {
   width: 100%;

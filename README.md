@@ -18,7 +18,7 @@ SPA en React con soporte bilingüe (ES/EN), tema claro/oscuro y animaciones GSAP
 | Estilos | CSS con custom properties, sin framework |
 | i18n | i18next + react-i18next, detección automática de idioma |
 | Animación | GSAP (timelines por página) |
-| Formulario | EmailJS |
+| Formulario | Función serverless en Vercel + Nodemailer (Gmail SMTP) |
 | Tests | Jest + React Testing Library |
 | Deploy | Vercel (automático desde `main`) |
 
@@ -30,32 +30,42 @@ SPA en React con soporte bilingüe (ES/EN), tema claro/oscuro y animaciones GSAP
 git clone https://github.com/FernandoRoyano/portfolio.git
 cd portfolio
 npm install
-cp .env.example .env   # rellenar con las credenciales de EmailJS
+cp .env.example .env   # solo hace falta para el formulario de contacto
 npm start
 ```
 
 La app queda en `http://localhost:3000`.
 
+> **El formulario no funciona con `npm start`.** El servidor de desarrollo de
+> Create React App no sirve `/api`: eso lo hace Vercel. Para probarlo en local,
+> `npx vercel dev`. El resto de la web funciona con `npm start` sin más.
+
 ### Variables de entorno
 
-El formulario de contacto usa EmailJS. Copia `.env.example` a `.env` y rellena:
+El formulario lo envía `api/contact.js`, una función serverless que corre en el
+servidor. Copia `.env.example` a `.env` y rellena:
 
 ```
-REACT_APP_EMAILJS_SERVICE_ID=
-REACT_APP_EMAILJS_TEMPLATE_ID=
-REACT_APP_EMAILJS_PUBLIC_KEY=
+GMAIL_USER=tu_cuenta@gmail.com
+GMAIL_APP_PASSWORD=          # 16 caracteres, ver más abajo
+CONTACT_TO=                  # opcional; si se omite, llega a GMAIL_USER
 ```
 
-Estos tres valores son públicos por diseño: acaban en el bundle del cliente, como
-cualquier variable `REACT_APP_*`. Lo que impide el abuso es la lista de dominios
-permitidos en el panel de EmailJS, no ocultarlos. Sin `.env` la app arranca, pero
-el envío del formulario falla.
+`GMAIL_APP_PASSWORD` **no es la contraseña de la cuenta**: es una contraseña de
+aplicación que se genera en [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+y requiere tener la verificación en dos pasos activada.
+
+Estas variables **no llevan el prefijo `REACT_APP_` a propósito**. Ese prefijo es
+justo lo que hace que Create React App incruste una variable en el bundle del
+cliente; al no llevarlo, viven solo en el servidor y son secretos de verdad. Las
+mismas dos hacen falta en Vercel → Settings → Environment Variables.
 
 ### Scripts
 
 | Comando | Qué hace |
 |---|---|
-| `npm start` | Servidor de desarrollo |
+| `npm start` | Servidor de desarrollo (sin `/api`) |
+| `npx vercel dev` | Servidor de desarrollo **con** las funciones de `/api` |
 | `npm run build` | Build de producción en `build/` |
 | `npm test` | Tests en modo watch |
 | `npm run lint` | ESLint sobre `src/`, sin tolerancia a warnings |
@@ -65,6 +75,8 @@ el envío del formulario falla.
 ## Estructura
 
 ```
+api/
+└── contact.js      Función serverless: valida y envía el formulario
 src/
 ├── components/     Header, Footer, LanguageSwitcher, ThemeToggle
 ├── pages/          Home, Skills, Projects, Contact — una por ruta
@@ -77,6 +89,9 @@ public/
 ├── images/         Avatar y imagen de Open Graph
 └── skills-icons/   Iconos servidos en local
 ```
+
+Todo lo que hay en `public/` se copia tal cual al build y se sirve en abierto: no
+pasa por webpack y no es una carpeta de trabajo.
 
 ---
 

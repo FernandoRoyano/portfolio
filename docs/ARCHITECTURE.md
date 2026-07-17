@@ -7,25 +7,33 @@ alternativas descartadas, ver [DECISIONS.md](DECISIONS.md).
 
 ## Panorama
 
-SPA de React servida como estático desde Vercel. Sin backend propio: el único
-servicio externo es EmailJS, al que el formulario de contacto llama desde el
-navegador.
+SPA de React servida como estático desde Vercel, más una única función
+serverless: el endpoint del formulario de contacto.
 
 ```mermaid
 graph LR
   U[Navegador] -->|HTML, JS, CSS, assets| V[Vercel · CDN]
-  U -->|POST del formulario| E[EmailJS API]
-  E -->|correo| M[Bandeja de Fernando]
-  V -.->|build automático en push a main| G[GitHub · main]
+  U -->|POST /api/contact| F[Función serverless<br/>api/contact.js]
+  F -->|SMTP autenticado| G2[Gmail]
+  G2 -->|correo| M[Bandeja de Fernando]
+  V -.->|build automático en push a main| GH[GitHub · main]
 
   style V fill:#7c3aed,color:#fff
-  style E fill:#334155,color:#fff
-  style G fill:#334155,color:#fff
+  style F fill:#7c3aed,color:#fff
+  style G2 fill:#334155,color:#fff
+  style GH fill:#334155,color:#fff
 ```
 
-No hay base de datos, sesiones ni autenticación. El contenido es estático y vive
-en el repositorio: los datos no traducibles en `src/data/`, los textos en
-`src/i18n/`.
+No hay base de datos, sesiones ni autenticación de usuarios. El contenido es
+estático y vive en el repositorio.
+
+**La función es la única pieza con estado sensible.** Sus credenciales
+(`GMAIL_USER`, `GMAIL_APP_PASSWORD`) no llevan el prefijo `REACT_APP_` a
+propósito: ese prefijo es justo lo que hace que Create React App incruste una
+variable en el bundle del cliente. Al vivir solo en el servidor, son secretos de
+verdad.
+
+Los datos no traducibles viven en `src/data/` y los textos en `src/i18n/`.
 
 ---
 
@@ -163,7 +171,7 @@ graph TD
 
   E -->|navegar a /skills| S["chunk Skills<br/>1,1 KB JS + 0,9 KB CSS"]
   E -->|navegar a /projects| P["chunk Projects<br/>1,4 KB JS + 1,3 KB CSS"]
-  E -->|navegar a /contact| C["chunk Contact<br/>2,6 KB JS + 1,2 KB CSS<br/>incluye @emailjs/browser"]
+  E -->|navegar a /contact| C["chunk Contact<br/>1,5 KB JS + 1,2 KB CSS"]
 
   style E fill:#7c3aed,color:#fff
 ```
@@ -249,29 +257,58 @@ final de `index.css`.
 ```mermaid
 sequenceDiagram
   participant U as Usuario
-  participant F as Contact.js
-  participant E as EmailJS API
+  participant C as Contact.js · navegador
+  participant A as api/contact.js · servidor
+  participant G as Gmail SMTP
 
-  U->>F: submit
-  F->>F: guard: ¿ya enviando? -> return
-  F->>F: setSending(true) · botón deshabilitado
-  F->>E: sendForm(service, template, form, { publicKey })
+  U->>C: submit
+  C->>C: guard: ¿ya enviando? -> return
+  C->>C: setSending(true) · botón deshabilitado
+  C->>A: POST /api/contact (JSON)
+
+  A->>A: ¿método POST?
+  A->>A: ¿campo trampa relleno? -> 200 y descartar
+  A->>A: validar campos, formato y longitud
+  A->>G: sendMail · from=cuenta, replyTo=visitante
+
   alt ok
-    E-->>F: 200
-    F->>U: success-msg (role="status") · reset
+    G-->>A: aceptado
+    A-->>C: 200 { ok: true }
+    C->>U: success-msg (role="status") · reset
   else error
-    E-->>F: error
-    F->>F: console.error con contexto
-    F->>U: error-msg (role="alert")
+    G-->>A: fallo
+    A->>A: console.error en los logs de Vercel
+    A-->>C: 502 { error }
+    C->>U: error-msg (role="alert")
   end
-  F->>F: setSending(false)
+  C->>C: setSending(false)
 ```
 
-Las credenciales viven en variables `REACT_APP_EMAILJS_*` (ver `.env.example`).
-**Son públicas por diseño**: como cualquier variable `REACT_APP_*`, acaban en el
-bundle del cliente. Lo que impide el abuso es la lista de dominios permitidos del
-panel de EmailJS, no ocultarlas. Están en `.env` por higiene y para no versionarlas,
-no porque sean secretas.
+### Por qué una función y no un servicio de formularios
+
+El formulario usaba EmailJS. Su cuenta desapareció y el endpoint empezó a devolver
+`404 Account not found`, con lo que **el formulario estuvo roto sin que nadie se
+enterara**: build correcto, tests en verde, y cualquier visitante que escribiera
+veía "Error al enviar". Es el fallo de un tercero cuya vida no controlas.
+
+La función elimina esa dependencia: si tu Gmail existe, el formulario funciona.
+
+**Defensas de la función:**
+
+| | |
+|---|---|
+| Método | Solo POST; el resto recibe 405 |
+| Campo trampa | `website`, oculto por CSS y fuera del tabulador. Si viene relleno se descarta el envío devolviendo 200, para no avisar al bot |
+| Validación | Campos obligatorios, formato de email y límites de longitud (100 / 254 / 5000) |
+| Credenciales | Solo en el servidor. Verificado: no aparecen en el bundle |
+
+**Sobre el remitente.** Gmail exige que el `from` sea la cuenta autenticada: no se
+puede suplantar al visitante. Su dirección va en `replyTo`, así que al pulsar
+Responder el correo le llega a él. Además de ser lo único que Gmail permite, es lo
+correcto: falsear el `from` haría fallar SPF y los mensajes acabarían en spam.
+
+**Limitación en desarrollo.** El servidor de `npm start` no sirve `/api`: eso lo
+hace Vercel. Para probar el formulario en local hace falta `npx vercel dev`.
 
 ---
 
@@ -316,8 +353,14 @@ El fallback de SPA para rutas profundas (`/projects` en directo, o recargar en
 `/contact`) lo aplica Vercel por su preset de Create React App — no hace falta
 declarar `rewrites`.
 
-**Variables de entorno requeridas en Vercel:** las tres `REACT_APP_EMAILJS_*`. Sin
-ellas la app compila y funciona, pero el formulario no envía.
+**Variables de entorno requeridas en Vercel:** `GMAIL_USER` y
+`GMAIL_APP_PASSWORD`, más `CONTACT_TO` si se quiere recibir en otra dirección. Sin
+ellas la app compila y funciona: solo falla el formulario, que devuelve 500
+`server_misconfigured` y deja constancia en los logs de la función.
+
+Las consume `api/contact.js` **en tiempo de ejecución**, así que cambiarlas no
+obliga a reconstruir — a diferencia de las `REACT_APP_*`, que webpack incrusta en
+tiempo de build.
 
 ---
 

@@ -8,7 +8,6 @@ import {
   PiClock,
   PiPaperPlaneTilt
 } from 'react-icons/pi';
-import emailjs from '@emailjs/browser';
 import gsap from 'gsap';
 import './Contact.css';
 import { useTranslation } from 'react-i18next';
@@ -40,28 +39,34 @@ function Contact() {
     return () => mm.revert();
   }, []);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     if (sending) return;
 
     setSending(true);
-    emailjs.sendForm(
-      process.env.REACT_APP_EMAILJS_SERVICE_ID,
-      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-      form.current,
-      { publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY }
-    )
-    .then(() => {
+    try {
+      const payload = Object.fromEntries(new FormData(form.current));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(`${response.status} ${body.error || 'unknown'}`);
+      }
+
       setSent(true);
       setError(false);
       form.current.reset();
-    })
-    .catch((err) => {
+    } catch (err) {
       console.error('[Contact:sendEmail] fallo al enviar el formulario', err);
       setError(true);
       setSent(false);
-    })
-    .finally(() => setSending(false));
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -75,7 +80,7 @@ function Contact() {
             <div className="info-icon"><PiEnvelopeSimple /></div>
             <div>
               <span className="info-label">{t('contact.emailLabel')}</span>
-              <a href="mailto:fernandoroyano@gmail.com" className="info-value">fernandoroyano@gmail.com</a>
+              <a href="mailto:fernandoroyano.dev@gmail.com" className="info-value">fernandoroyano.dev@gmail.com</a>
             </div>
           </div>
           <div className="info-item">
@@ -106,17 +111,28 @@ function Contact() {
         <div className="contact-form-wrapper">
           <form ref={form} className="contact-form" onSubmit={sendEmail}>
             <div className="field">
-              <input type="text" name="user_name" id="user_name" placeholder=" " required />
-              <label htmlFor="user_name">{t('contact.name')}</label>
+              <input type="text" name="name" id="name" placeholder=" " autoComplete="name" required />
+              <label htmlFor="name">{t('contact.name')}</label>
             </div>
             <div className="field">
-              <input type="email" name="user_email" id="user_email" placeholder=" " required />
-              <label htmlFor="user_email">{t('contact.email')}</label>
+              <input type="email" name="email" id="email" placeholder=" " autoComplete="email" required />
+              <label htmlFor="email">{t('contact.email')}</label>
             </div>
             <div className="field">
               <textarea name="message" id="message" rows="5" placeholder=" " required></textarea>
               <label htmlFor="message">{t('contact.message')}</label>
             </div>
+
+            {/* Trampa para bots: oculta y fuera del orden de tabulación. Si viene
+                rellena, la función descarta el envío. */}
+            <input
+              type="text"
+              name="website"
+              className="hp-field"
+              tabIndex="-1"
+              autoComplete="off"
+              aria-hidden="true"
+            />
 
             <button type="submit" disabled={sending}>
               <PiPaperPlaneTilt /> {sending ? t('contact.sending') : t('contact.send')}

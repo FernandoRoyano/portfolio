@@ -146,21 +146,43 @@ tres viajes de red bloqueando el render.
 
 ---
 
-## 7. Las credenciales de EmailJS son públicas, y está bien
+## 7. El formulario tiene backend propio, no un servicio de terceros
 
-**Contexto.** Los IDs y la public key de EmailJS estaban escritos en `Contact.js`.
+**Cómo se descubrió.** El formulario usaba EmailJS con las credenciales escritas en
+`Contact.js`. Al probarlo, la API devolvía `404 Account not found`.
 
-**Decisión.** Pasan a variables `REACT_APP_EMAILJS_*`, con `.env.example` como
-plantilla.
+El diagnóstico fue concluyente: una public key inventada da `400 Public Key is
+invalid`, pero la de este proyecto daba `404 Account not found`. Es decir, la key
+estaba bien formada y EmailJS la reconocía — **lo que ya no existía era la cuenta**.
+La key entró en el primer commit del repositorio, en mayo de 2025, y nunca cambió.
 
-**Sin autoengaño.** Esto **no** es un arreglo de seguridad. Cualquier variable
-`REACT_APP_*` acaba en el bundle del cliente: siguen siendo públicas y son
-públicas por diseño. Lo que impide el abuso es la lista de dominios permitidos del
-panel de EmailJS.
+**Lo importante:** el formulario llevaba roto mucho tiempo y nadie lo sabía. Build
+correcto, tests en verde, y cualquier reclutador que escribiera veía "Error al
+enviar. Inténtalo más tarde". Un servicio de terceros se murió en silencio y se
+llevó por delante el único canal de contacto de la web.
 
-**Entonces por qué.** Dos razones honestas: no versionar credenciales de una cuenta
-concreta, y que un revisor no tenga que pararse a razonar el matiz al ver claves
-literales en el código. Es higiene y comunicación, no protección.
+**Decisión.** Backend propio: una función serverless en `api/contact.js` que envía
+con Nodemailer por Gmail SMTP.
+
+**Descartado:**
+- **Otro servicio de formularios** (Formspree, Web3Forms). Es exactamente la misma
+  clase de dependencia que acababa de fallar.
+- **Resend.** Mejor entregabilidad que Gmail SMTP, pero vuelve a ser una cuenta de
+  un tercero que mantener.
+- **Quitar el formulario y dejar un `mailto:`.** Cero dependencias e imposible de
+  romper, pero obliga al visitante a abrir su cliente de correo.
+
+**Beneficio que no se buscaba pero llegó.** Con EmailJS las credenciales eran
+públicas por diseño: cualquier variable `REACT_APP_*` acaba en el bundle, y lo
+único que impedía el abuso era una lista de dominios. Ahora `GMAIL_USER` y
+`GMAIL_APP_PASSWORD` viven solo en el servidor y **no llevan el prefijo
+`REACT_APP_` precisamente para que CRA no las incruste**. Verificado sobre el build:
+cero coincidencias de la contraseña, del nombre de la variable y de `nodemailer` en
+el JavaScript que descarga el navegador.
+
+**Coste.** El formulario ya no funciona con `npm start`, porque el servidor de
+desarrollo de CRA no sirve `/api`. Hace falta `npx vercel dev`. Es el precio de
+tener backend, y es barato.
 
 ---
 
