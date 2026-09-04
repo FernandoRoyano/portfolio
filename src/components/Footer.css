@@ -1,7 +1,7 @@
 /* ── Footer ── */
 .footer {
-  background: #1a1a2e;
-  color: #888;
+  background: #171b18;
+  color: #879087;
   text-align: center;
   padding: 2.5rem 2rem;
 }
@@ -17,11 +17,11 @@
 .footer-branding span {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #ccc;
+  color: #d7dcd7;
 }
 
 .footer-rights {
   font-size: 0.8rem;
-  color: #666;
+  color: #798279;
   margin: 0;
 }

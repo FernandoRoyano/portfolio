@@ -39,7 +39,7 @@ const projects = [
   {
     id: 'antea-salud',
     technologies: ['Next.js', 'React', 'TypeScript', 'CSS Modules', 'EmailJS'],
-    link: 'https://anteasalud-landing.vercel.app',
+    link: 'https://anteasalud.com',
     image: '/projects/antea-salud.webp'
   },
   {

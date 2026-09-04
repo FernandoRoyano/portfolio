@@ -1,22 +1,17 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import {
-  PiHandshake,
-  PiLightbulb,
-  PiRobot,
-  PiBrain,
-  PiBinoculars,
-  PiTreeStructure,
-  PiMegaphone,
-  PiTarget,
-  PiUsersThree,
-  PiFileText,
-  PiArrowRight,
-  PiGraduationCap
-} from 'react-icons/pi';
+import { PiArrowDown, PiArrowRight, PiEnvelopeSimple } from 'react-icons/pi';
 import gsap from 'gsap';
 import './Home.css';
 import { useTranslation } from 'react-i18next';
+
+const featuredProjects = [
+  { id: 'amuzim', image: '/projects/amuzim.webp', tone: 'cobalt', index: '01' },
+  { id: 'trainhub', image: '/projects/trainhub.webp', tone: 'coral', index: '02' },
+  { id: 'wellnessreal', image: '/projects/wellnessreal.webp', tone: 'moss', index: '03' },
+  { id: 'antea-salud', image: '/projects/antea-salud.webp', tone: 'sand', index: '04' }
+];
 
 function Home() {
   const { t } = useTranslation();
@@ -24,132 +19,111 @@ function Home() {
 
   useEffect(() => {
     const el = sectionRef.current;
-    if (!el) return;
-
-    // Las animaciones solo se construyen si no hay preferencia por reducir
-    // movimiento. Pausar el timeline no valdría: GSAP aplicaría el estado
-    // inicial (opacity 0) y la página quedaría en blanco.
+    if (!el) return undefined;
     const mm = gsap.matchMedia();
-
     mm.add('(prefers-reduced-motion: no-preference)', () => {
-      const badge = el.querySelector('.status-badge');
-      const avatar = el.querySelector('.avatar-wrapper');
-      const greeting = el.querySelector('.home-greeting');
-      const headline = el.querySelector('.headline');
-      const intro = el.querySelector('.short-intro');
-      const buttons = el.querySelectorAll('.home-buttons a');
-      const valueCards = el.querySelectorAll('.value-card');
-      const softSkills = el.querySelector('.soft-skills');
-      const softItems = el.querySelectorAll('.soft-skills li');
-      const education = el.querySelector('.education');
-      const educationItems = el.querySelectorAll('.education-item');
-
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-      tl.fromTo(badge, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.5 })
-        .fromTo(avatar, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.8 }, '-=0.2')
-        .fromTo(greeting, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
-        .fromTo(headline, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.3')
-        .fromTo(intro, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
-        .fromTo(buttons, { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.5 }, '-=0.2')
-        .fromTo(valueCards, { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: 0.12, duration: 0.7 }, '-=0.2')
-        .fromTo(softSkills, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
-        .fromTo(softItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.08, duration: 0.4 }, '-=0.4')
-        .fromTo(education, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
-        .fromTo(educationItems, { opacity: 0, x: -20 }, { opacity: 1, x: 0, stagger: 0.1, duration: 0.4 }, '-=0.4');
+      tl.fromTo(el.querySelector('.hero-kicker'), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45 })
+        .fromTo(el.querySelector('.hero-title'), { opacity: 0, y: 32 }, { opacity: 1, y: 0, duration: 0.75 }, '-=0.2')
+        .fromTo(el.querySelector('.hero-copy'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55 }, '-=0.4')
+        .fromTo(el.querySelectorAll('.hero-actions a'), { opacity: 0, y: 14 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.4 }, '-=0.25')
+        .fromTo(el.querySelector('.portrait-frame'), { opacity: 0, clipPath: 'inset(0 0 100% 0)' }, { opacity: 1, clipPath: 'inset(0 0 0% 0)', duration: 0.9 }, '-=0.7')
+        .fromTo(el.querySelector('.portrait-note'), { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.45 }, '-=0.25');
     });
-
     return () => mm.revert();
   }, []);
 
-  const eduItems = t('home.education.items', { returnObjects: true }) || [];
-
   return (
-    <section className="home" ref={sectionRef}>
-      <div className="hero">
-        <div className="status-badge">
-          <span className="status-dot" aria-hidden="true"></span>
-          <span>{t('home.available')}</span>
+    <div className="portfolio-home" ref={sectionRef}>
+      <section className="editorial-hero">
+        <div className="hero-content">
+          <p className="hero-kicker"><span aria-hidden="true" />{t('home.heroKicker')}</p>
+          <h1 className="hero-title">{t('home.heroTitle')}<em>{t('home.heroTitleAccent')}</em></h1>
+          <p className="hero-copy">{t('home.heroCopy')}</p>
+          <div className="hero-actions">
+            <a href="#selected-work" className="action-primary">{t('home.seeWork')} <PiArrowDown /></a>
+            <Link to="/contact" className="action-text">{t('home.talk')} <PiArrowRight /></Link>
+          </div>
         </div>
-
-        <div className="avatar-wrapper">
-          <div className="avatar-glow" aria-hidden="true"></div>
-          <img
-            src="/images/avatar.webp"
-            alt="Fernando Royano"
-            className="avatar"
-            width="140"
-            height="140"
-            fetchpriority="high"
-          />
+        <div className="hero-portrait">
+          <div className="portrait-frame">
+            <img src="/images/fernando-portrait.webp" alt={t('home.portraitAlt')} width="1122" height="1402" fetchPriority="high" />
+          </div>
+          <p className="portrait-note"><span>{t('home.portraitNote')}</span>{t('home.portraitPlace')}</p>
         </div>
+        <a href="#perspective" className="hero-scroll" aria-label={t('home.scrollAria')}><span>{t('home.scroll')}</span><PiArrowDown /></a>
+      </section>
 
-        <p className="home-greeting">{t('home.title')}</p>
+      <section className="proof-line" aria-label={t('home.proofAria')}>
+        <p>{t('home.proofIntro')}</p>
+        <ul><li>{t('home.proof.product')}</li><li>{t('home.proof.design')}</li><li>{t('home.proof.code')}</li><li>{t('home.proof.ai')}</li></ul>
+      </section>
 
-        <h1 className="headline">
-          <span className="gradient-text">{t('home.headline')}</span>
-          <span className="sub">{t('home.subheadline')}</span>
-        </h1>
-
-        <p className="short-intro">{t('home.intro')}</p>
-
-        <div className="home-buttons">
-          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" download="CV_Fernando_Royano.pdf" className="btn btn-primary">
-            <PiFileText /> {t('home.downloadCV')} <PiArrowRight className="btn-arrow" />
-          </a>
-          <a href="https://github.com/FernandoRoyano" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-            <FaGithub /> GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/fernando-royano-cabrero-dev/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-            <FaLinkedin /> LinkedIn
-          </a>
+      <section className="perspective-section" id="perspective">
+        <div className="section-label">{t('home.perspective.label')}</div>
+        <div className="perspective-copy">
+          <h2>{t('home.perspective.title')}</h2>
+          <div><p>{t('home.perspective.copyOne')}</p><p>{t('home.perspective.copyTwo')}</p></div>
         </div>
-      </div>
+        <blockquote>{t('home.perspective.quote')}</blockquote>
+      </section>
 
-      <div className="value-grid">
-        <div className="value-card" data-accent="violet">
-          <div className="value-icon-wrapper"><PiHandshake /></div>
-          <h2 className="value-title">{t('home.values.collaborate')}</h2>
-          <p>{t('home.values.collaborateText')}</p>
-        </div>
-        <div className="value-card" data-accent="cyan">
-          <div className="value-icon-wrapper"><PiLightbulb /></div>
-          <h2 className="value-title">{t('home.values.product')}</h2>
-          <p>{t('home.values.productText')}</p>
-        </div>
-        <div className="value-card" data-accent="pink">
-          <div className="value-icon-wrapper"><PiRobot /></div>
-          <h2 className="value-title">{t('home.values.ai')}</h2>
-          <p>{t('home.values.aiText')}</p>
-        </div>
-      </div>
-
-      <div className="soft-skills">
-        <h2 className="soft-skills-heading"><PiBrain className="soft-skills-icon" /> {t('home.softSkills.title')}</h2>
-        <ul>
-          <li><PiBinoculars className="list-icon" /> {t('home.softSkills.vision')}</li>
-          <li><PiTreeStructure className="list-icon" /> {t('home.softSkills.systems')}</li>
-          <li><PiMegaphone className="list-icon" /> {t('home.softSkills.communication')}</li>
-          <li><PiTarget className="list-icon" /> {t('home.softSkills.focus')}</li>
-          <li><PiUsersThree className="list-icon" /> {t('home.softSkills.teamwork')}</li>
-        </ul>
-      </div>
-
-      <div className="education">
-        <h2 className="education-heading"><PiGraduationCap className="education-icon" /> {t('home.education.title')}</h2>
-        <ul className="education-timeline">
-          {Array.isArray(eduItems) && eduItems.map((item, i) => (
-            <li key={i} className="education-item">
-              <span className="education-period">{item.period}</span>
-              <div className="education-body">
-                <span className="education-title">{item.title}</span>
-                <span className="education-place">{item.place}</span>
+      <section className="work-section" id="selected-work">
+        <header className="work-header">
+          <div><p className="section-label">{t('home.work.label')}</p><h2>{t('home.work.title')}</h2></div>
+          <p>{t('home.work.intro')}</p>
+        </header>
+        <div className="featured-list">
+          {featuredProjects.map((project) => (
+            <article className="featured-project" data-tone={project.tone} key={project.id}>
+              <a href={t(`home.work.items.${project.id}.link`)} target="_blank" rel="noopener noreferrer" className="project-visual" aria-label={t('projects.openAria', { name: t(`projects.items.${project.id}.name`) })}>
+                <span className="project-index">{project.index}</span><img src={project.image} alt="" loading="lazy" />
+              </a>
+              <div className="project-story">
+                <p className="project-type">{t(`home.work.items.${project.id}.type`)}</p>
+                <h3>{t(`projects.items.${project.id}.name`)}</h3>
+                <p className="project-thesis">{t(`home.work.items.${project.id}.thesis`)}</p>
+                <dl>
+                  <div><dt>{t('home.work.challenge')}</dt><dd>{t(`home.work.items.${project.id}.challenge`)}</dd></div>
+                  <div><dt>{t('home.work.role')}</dt><dd>{t(`home.work.items.${project.id}.role`)}</dd></div>
+                </dl>
+                <a href={t(`home.work.items.${project.id}.link`)} target="_blank" rel="noopener noreferrer" className="project-link">{t('home.work.visit')} <PiArrowRight /></a>
               </div>
-            </li>
+            </article>
           ))}
-        </ul>
-      </div>
-    </section>
+        </div>
+        <div className="all-work-link"><Link to="/projects">{t('home.work.all')} <PiArrowRight /></Link></div>
+      </section>
+
+      <section className="working-section">
+        <div className="working-title"><p className="section-label">{t('home.working.label')}</p><h2>{t('home.working.title')}</h2></div>
+        <div className="working-grid">
+          {['understand', 'decide', 'build'].map((item, index) => (
+            <div className="working-item" key={item}><span>0{index + 1}</span><h3>{t(`home.working.${item}.title`)}</h3><p>{t(`home.working.${item}.copy`)}</p></div>
+          ))}
+        </div>
+      </section>
+
+      <section className="human-section">
+        <p className="section-label">{t('home.human.label')}</p>
+        <div className="human-layout">
+          <h2>{t('home.human.title')}</h2>
+          <div>
+            <p>{t('home.human.copyOne')}</p><p>{t('home.human.copyTwo')}</p>
+            <div className="human-links">
+              <a href="https://www.linkedin.com/in/fernando-royano-cabrero-dev/" target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a>
+              <a href="https://github.com/FernandoRoyano" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub</a>
+              <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">{t('home.cv')}</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-cta">
+        <p>{t('home.cta.eyebrow')}</p><h2>{t('home.cta.title')}</h2>
+        <Link to="/contact">{t('home.cta.action')} <PiEnvelopeSimple /></Link>
+      </section>
+    </div>
   );
 }
 

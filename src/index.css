@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap');
 
 /* ── Theme Tokens ── */
 :root,
 [data-theme='light'] {
-  --bg: #fafafa;
-  --bg-elevated: #ffffff;
-  --bg-mesh-1: rgba(124, 58, 237, 0.08);
-  --bg-mesh-2: rgba(6, 182, 212, 0.06);
+  --bg: #eef1ed;
+  --bg-elevated: #f8f9f6;
+  --bg-mesh-1: transparent;
+  --bg-mesh-2: transparent;
 
   --surface: rgba(255, 255, 255, 0.7);
   --surface-solid: #ffffff;
@@ -15,18 +15,19 @@
   --border: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.15);
 
-  --text: #0f172a;
-  --text-muted: #475569;
-  --text-subtle: #94a3b8;
+  --text: #1c211e;
+  --text-muted: #59635c;
+  --text-subtle: #7b867e;
 
-  --accent: #7c3aed;
-  --accent-hover: #6d28d9;
-  --accent-2: #06b6d4;
-  --accent-glow: rgba(124, 58, 237, 0.4);
+  --accent: #53654f;
+  --accent-hover: #3f503c;
+  --accent-2: #d97047;
+  --accent-warm: #d4633b;
+  --accent-glow: rgba(83, 101, 79, 0.28);
 
-  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
-  --gradient-text: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #06b6d4 100%);
-  --gradient-glow: radial-gradient(circle at center, rgba(124, 58, 237, 0.25), transparent 70%);
+  --gradient-primary: linear-gradient(135deg, #53654f 0%, #d97047 100%);
+  --gradient-text: linear-gradient(135deg, #40513d 0%, #d4633b 100%);
+  --gradient-glow: radial-gradient(circle at center, rgba(83, 101, 79, 0.18), transparent 70%);
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
@@ -35,30 +36,31 @@
 }
 
 [data-theme='dark'] {
-  --bg: #0a0e1a;
-  --bg-elevated: #0f1421;
-  --bg-mesh-1: rgba(124, 58, 237, 0.18);
-  --bg-mesh-2: rgba(6, 182, 212, 0.12);
+  --bg: #171b18;
+  --bg-elevated: #202521;
+  --bg-mesh-1: transparent;
+  --bg-mesh-2: transparent;
 
   --surface: rgba(255, 255, 255, 0.04);
-  --surface-solid: #131826;
+  --surface-solid: #252b26;
   --surface-hover: rgba(255, 255, 255, 0.08);
 
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.18);
 
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
+  --text: #eef1ed;
+  --text-muted: #aeb7b0;
+  --text-subtle: #7f8a82;
 
-  --accent: #a78bfa;
-  --accent-hover: #c4b5fd;
-  --accent-2: #22d3ee;
-  --accent-glow: rgba(167, 139, 250, 0.5);
+  --accent: #91a38b;
+  --accent-hover: #b7c4b2;
+  --accent-2: #ed8058;
+  --accent-warm: #ed8058;
+  --accent-glow: rgba(145, 163, 139, 0.35);
 
-  --gradient-primary: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%);
-  --gradient-text: linear-gradient(135deg, #a78bfa 0%, #f472b6 50%, #22d3ee 100%);
-  --gradient-glow: radial-gradient(circle at center, rgba(167, 139, 250, 0.35), transparent 70%);
+  --gradient-primary: linear-gradient(135deg, #91a38b 0%, #ed8058 100%);
+  --gradient-text: linear-gradient(135deg, #b7c4b2 0%, #ed8058 100%);
+  --gradient-glow: radial-gradient(circle at center, rgba(145, 163, 139, 0.22), transparent 70%);
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -74,7 +76,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text);
@@ -90,9 +92,7 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 0%, var(--bg-mesh-1), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 100%, var(--bg-mesh-2), transparent 60%);
+  background: none;
   transition: background 0.4s ease;
 }
 

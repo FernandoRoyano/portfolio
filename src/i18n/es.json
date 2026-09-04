@@ -7,6 +7,90 @@
     "menu": "Abrir menú"
   },
   "home": {
+    "heroKicker": "Producto · diseño · desarrollo",
+    "heroTitle": "Ideas que se convierten en",
+    "heroTitleAccent": "productos reales.",
+    "heroCopy": "Soy Fernando. Entiendo el problema, doy forma al producto y construyo la solución completa: de la primera conversación al lanzamiento.",
+    "seeWork": "Ver proyectos",
+    "talk": "Hablemos",
+    "portraitAlt": "Fernando Royano en su espacio de trabajo",
+    "portraitNote": "Fernando Royano",
+    "portraitPlace": "Cantabria · trabajando en remoto",
+    "scroll": "Conóceme",
+    "scrollAria": "Bajar para conocer mi forma de trabajar",
+    "proofAria": "Áreas de trabajo",
+    "proofIntro": "Una sola mirada para conectar",
+    "proof": {
+      "product": "Producto",
+      "design": "Diseño",
+      "code": "Desarrollo",
+      "ai": "IA aplicada"
+    },
+    "perspective": {
+      "label": "Mi forma de verlo",
+      "title": "No construyo pantallas. Construyo respuestas.",
+      "copyOne": "Me interesa entender qué necesita una persona, qué hace viable una idea y qué tecnología tiene sentido para llevarla adelante. El código llega después de esas preguntas.",
+      "copyTwo": "Trabajo bien en ese espacio donde se cruzan negocio, experiencia y desarrollo. Ahí es donde una idea deja de ser abstracta y empieza a funcionar.",
+      "quote": "Mi trabajo consiste en reducir la distancia entre «tengo una idea» y «ya está funcionando»."
+    },
+    "work": {
+      "label": "Trabajo seleccionado",
+      "title": "Proyectos con contexto.",
+      "intro": "Sectores diferentes, una misma responsabilidad: entender, decidir y llevar el producto hasta una versión real.",
+      "challenge": "El reto",
+      "role": "Mi papel",
+      "visit": "Visitar proyecto",
+      "all": "Ver todos los proyectos",
+      "items": {
+        "amuzim": {
+          "type": "Producto · Música · Comunidad",
+          "thesis": "Un espacio donde los creadores recuperan el control sobre lo que comparten y cómo crecen.",
+          "challenge": "Convertir una visión amplia del mundo musical en un ecosistema comprensible y técnicamente viable.",
+          "role": "Arquitectura de producto, experiencia, stack y decisiones de ingeniería central.",
+          "link": "https://amuzim-kappa.vercel.app/es"
+        },
+        "trainhub": {
+          "type": "SaaS · Fitness · Operaciones",
+          "thesis": "La operativa completa de un entrenador, reunida en un producto que también funciona para sus clientes.",
+          "challenge": "Unificar rutinas, nutrición, progreso, comunicación y cobros sin complicar el trabajo diario.",
+          "role": "Concepto, diseño de flujos, arquitectura y desarrollo full stack.",
+          "link": "https://train-hub-five.vercel.app"
+        },
+        "wellnessreal": {
+          "type": "Marca propia · Salud · Servicio digital",
+          "thesis": "Tecnología al servicio de un acompañamiento más cercano, claro y sostenible.",
+          "challenge": "Traducir experiencia profesional en una propuesta digital que informe, genere confianza y permita trabajar online.",
+          "role": "Fundador, estrategia, producto, contenidos, diseño y desarrollo.",
+          "link": "https://wellnessreal.es"
+        },
+        "antea-salud": {
+          "type": "Servicio · Mayores · Confianza",
+          "thesis": "Una experiencia digital serena para explicar un servicio profundamente humano.",
+          "challenge": "Presentar entrenamiento y rehabilitación a domicilio con claridad para mayores y sus familias.",
+          "role": "Estrategia de comunicación, experiencia, diseño y desarrollo web.",
+          "link": "https://anteasalud.com"
+        }
+      }
+    },
+    "working": {
+      "label": "Cómo trabajo",
+      "title": "Criterio antes que ruido.",
+      "understand": { "title": "Entender", "copy": "Escucho, ordeno el contexto y localizo el problema que de verdad merece resolverse." },
+      "decide": { "title": "Decidir", "copy": "Conecto producto, usuario y negocio para elegir un camino claro y asumible." },
+      "build": { "title": "Construir", "copy": "Diseño, desarrollo, pruebo y termino. La idea se convierte en algo que puede usarse." }
+    },
+    "human": {
+      "label": "Detrás del trabajo",
+      "title": "Curiosidad, disciplina y los pies en la tierra.",
+      "copyOne": "Mi recorrido no empezó ni termina en el código. Vengo de los sistemas, el deporte, la venta y el emprendimiento. Esa mezcla me ayuda a hablar con perfiles muy distintos y a ver el producto completo.",
+      "copyTwo": "Me implico, hago preguntas y digo lo que pienso. Busco relaciones de trabajo honestas y proyectos que aporten algo real a quien está al otro lado."
+    },
+    "cv": "Ver CV",
+    "cta": {
+      "eyebrow": "¿Tienes una idea o un reto entre manos?",
+      "title": "Podemos convertirlo en algo real.",
+      "action": "Cuéntame el proyecto"
+    },
     "title": "Hola, soy Fernando",
     "available": "Disponible para nuevos proyectos",
     "headline": "Product Builder & Full Stack Developer",

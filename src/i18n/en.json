@@ -7,6 +7,90 @@
     "menu": "Open menu"
   },
   "home": {
+    "heroKicker": "Product · design · development",
+    "heroTitle": "Ideas turned into",
+    "heroTitleAccent": "real products.",
+    "heroCopy": "I'm Fernando. I understand the problem, shape the product and build the complete solution—from the first conversation to launch.",
+    "seeWork": "See my work",
+    "talk": "Let's talk",
+    "portraitAlt": "Fernando Royano in his workspace",
+    "portraitNote": "Fernando Royano",
+    "portraitPlace": "Cantabria · working remotely",
+    "scroll": "Meet me",
+    "scrollAria": "Scroll down to learn how I work",
+    "proofAria": "Areas of work",
+    "proofIntro": "One perspective connecting",
+    "proof": {
+      "product": "Product",
+      "design": "Design",
+      "code": "Development",
+      "ai": "Applied AI"
+    },
+    "perspective": {
+      "label": "How I see it",
+      "title": "I don't build screens. I build answers.",
+      "copyOne": "I want to understand what people need, what makes an idea viable and which technology makes sense to move it forward. Code comes after those questions.",
+      "copyTwo": "I work well where business, experience and development meet. That is where an abstract idea starts becoming something that works.",
+      "quote": "My job is to shorten the distance between “I have an idea” and “it is already working”."
+    },
+    "work": {
+      "label": "Selected work",
+      "title": "Projects with context.",
+      "intro": "Different industries, the same responsibility: understand, decide and take the product to a real version.",
+      "challenge": "Challenge",
+      "role": "My role",
+      "visit": "Visit project",
+      "all": "View all projects",
+      "items": {
+        "amuzim": {
+          "type": "Product · Music · Community",
+          "thesis": "A space where creators regain control over what they share and how they grow.",
+          "challenge": "Turn a broad vision of the music world into an understandable and technically viable ecosystem.",
+          "role": "Product architecture, experience, stack and core engineering decisions.",
+          "link": "https://amuzim-kappa.vercel.app/es"
+        },
+        "trainhub": {
+          "type": "SaaS · Fitness · Operations",
+          "thesis": "A trainer's complete operation in one product that works for their clients too.",
+          "challenge": "Unify workouts, nutrition, progress, communication and payments without complicating daily work.",
+          "role": "Concept, flow design, architecture and full-stack development.",
+          "link": "https://train-hub-five.vercel.app"
+        },
+        "wellnessreal": {
+          "type": "Own brand · Health · Digital service",
+          "thesis": "Technology in service of closer, clearer and more sustainable support.",
+          "challenge": "Turn professional experience into a digital proposition that informs, builds trust and enables online work.",
+          "role": "Founder, strategy, product, content, design and development.",
+          "link": "https://wellnessreal.es"
+        },
+        "antea-salud": {
+          "type": "Service · Older people · Trust",
+          "thesis": "A calm digital experience explaining a deeply human service.",
+          "challenge": "Present at-home training and rehabilitation clearly to older people and their families.",
+          "role": "Communication strategy, experience, design and web development.",
+          "link": "https://anteasalud.com"
+        }
+      }
+    },
+    "working": {
+      "label": "How I work",
+      "title": "Judgement before noise.",
+      "understand": { "title": "Understand", "copy": "I listen, organise the context and identify the problem that is truly worth solving." },
+      "decide": { "title": "Decide", "copy": "I connect product, people and business to choose a clear and realistic path." },
+      "build": { "title": "Build", "copy": "I design, develop, test and finish. The idea becomes something people can use." }
+    },
+    "human": {
+      "label": "Behind the work",
+      "title": "Curiosity, discipline and feet on the ground.",
+      "copyOne": "My journey did not begin or end with code. I come from systems, sport, sales and entrepreneurship. That mix helps me speak with very different people and see the whole product.",
+      "copyTwo": "I get involved, ask questions and say what I think. I look for honest working relationships and projects that bring something real to the person on the other side."
+    },
+    "cv": "View CV",
+    "cta": {
+      "eyebrow": "Have an idea or a challenge in mind?",
+      "title": "We can turn it into something real.",
+      "action": "Tell me about it"
+    },
     "title": "Hi, I'm Fernando",
     "available": "Available for new work",
     "headline": "Product Builder & Full Stack Developer",
