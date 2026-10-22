@@ -16,11 +16,13 @@ const skills = [
     id: 'backend',
     items: [
       { name: 'Node.js', icon: '/skills-icons/nodejs.svg' },
-      { name: 'Python', icon: '/skills-icons/python.svg' },
+      { name: 'Python', icon: '/skills-icons/python.svg', occasional: true },
       { name: 'Express.js', icon: '/skills-icons/express.svg' },
       { name: 'MongoDB', icon: '/skills-icons/mongodb.svg' },
       { name: 'PostgreSQL', icon: '/skills-icons/postgresql.svg' },
-      { name: 'Supabase', icon: '/skills-icons/supabase.svg' }
+      { name: 'Supabase', icon: '/skills-icons/supabase.svg' },
+      { name: 'Azure', occasional: true },
+      { name: 'APIs REST' }
     ]
   },
   {
@@ -31,7 +33,11 @@ const skills = [
       { name: 'Git', icon: '/skills-icons/git.svg' },
       { name: 'GitHub', icon: '/skills-icons/github.svg' },
       { name: 'Figma', icon: '/skills-icons/figma.svg' },
-      { name: 'WordPress', icon: '/skills-icons/wordpress.svg' }
+      { name: 'WordPress', icon: '/skills-icons/wordpress.svg' },
+      { name: 'MCP' },
+      { name: 'Whisper' },
+      { name: 'n8n / Make' },
+      { name: 'Remotion / FFmpeg' }
     ]
   }
 ];

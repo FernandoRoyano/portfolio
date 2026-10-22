@@ -3,7 +3,9 @@
 /* ── Theme Tokens ── */
 :root,
 [data-theme='light'] {
-  --bg: #eef1ed;
+  --bg: #f2f3ed;
+  --hero-glow: rgba(114, 145, 77, .18);
+  --on-accent: #ffffff;
   --bg-elevated: #f8f9f6;
   --bg-mesh-1: transparent;
   --bg-mesh-2: transparent;
@@ -36,7 +38,9 @@
 }
 
 [data-theme='dark'] {
-  --bg: #171b18;
+  --bg: #101513;
+  --hero-glow: rgba(158, 193, 95, .17);
+  --on-accent: #152010;
   --bg-elevated: #202521;
   --bg-mesh-1: transparent;
   --bg-mesh-2: transparent;
@@ -52,8 +56,8 @@
   --text-muted: #aeb7b0;
   --text-subtle: #7f8a82;
 
-  --accent: #91a38b;
-  --accent-hover: #b7c4b2;
+  --accent: #c2dd91;
+  --accent-hover: #d6edb0;
   --accent-2: #ed8058;
   --accent-warm: #ed8058;
   --accent-glow: rgba(145, 163, 139, 0.35);

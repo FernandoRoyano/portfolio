@@ -15,7 +15,7 @@
     "talk": "Hablemos",
     "portraitAlt": "Fernando Royano en su espacio de trabajo",
     "portraitNote": "Fernando Royano",
-    "portraitPlace": "Cantabria · trabajando en remoto",
+    "portraitPlace": "Madrid · trabajando en remoto",
     "scroll": "Conóceme",
     "scrollAria": "Bajar para conocer mi forma de trabajar",
     "proofAria": "Áreas de trabajo",
@@ -75,9 +75,18 @@
     "working": {
       "label": "Cómo trabajo",
       "title": "Criterio antes que ruido.",
-      "understand": { "title": "Entender", "copy": "Escucho, ordeno el contexto y localizo el problema que de verdad merece resolverse." },
-      "decide": { "title": "Decidir", "copy": "Conecto producto, usuario y negocio para elegir un camino claro y asumible." },
-      "build": { "title": "Construir", "copy": "Diseño, desarrollo, pruebo y termino. La idea se convierte en algo que puede usarse." }
+      "understand": {
+        "title": "Entender",
+        "copy": "Escucho, ordeno el contexto y localizo el problema que de verdad merece resolverse."
+      },
+      "decide": {
+        "title": "Decidir",
+        "copy": "Conecto producto, usuario y negocio para elegir un camino claro y asumible."
+      },
+      "build": {
+        "title": "Construir",
+        "copy": "Diseño, desarrollo, pruebo y termino. La idea se convierte en algo que puede usarse."
+      }
     },
     "human": {
       "label": "Detrás del trabajo",
@@ -137,16 +146,61 @@
           "place": "IES María Inmaculada"
         }
       ]
+    },
+    "stack": {
+      "build": "Mi stack principal",
+      "connect": "De la idea al producto"
     }
   },
   "skills": {
     "title": "Stack",
-    "subtitle": "Tecnologías con las que trabajo día a día",
+    "subtitle": "Mi base de desarrollo y las herramientas que utilizo según las necesidades de cada proyecto.",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
       "ai-tools": "IA & Herramientas"
-    }
+    },
+    "eyebrow": "Tecnología con criterio",
+    "context": {
+      "frontend": "Mi base habitual: React, Next.js y TypeScript para construir productos completos.",
+      "backend": "Node.js, PostgreSQL y Supabase. Python y Azure como apoyo puntual en algunos proyectos.",
+      "ai-tools": "Herramientas de desarrollo e integración elegidas según las necesidades de cada proyecto."
+    },
+    "education": {
+      "label": "Formación técnica",
+      "title": "Desarrollo de Aplicaciones Web",
+      "intro": "Base técnica del ciclo DAW, aplicada al desarrollo de productos completos.",
+      "modules": [
+        "Programación y entornos de desarrollo",
+        "Bases de datos",
+        "Lenguajes de marcas y gestión de información",
+        "Desarrollo web en entorno cliente y servidor",
+        "Despliegue de aplicaciones web",
+        "Diseño de interfaces web"
+      ],
+      "note": "Selección de módulos técnicos del currículo oficial. Proyecto final: WellnessReal.",
+      "source": "Consultar currículo oficial",
+      "additionalTitle": "Ciclos formativos y formación complementaria",
+      "additional": [
+        {
+          "title": "Bootcamp Front-End Developer con React",
+          "detail": "Gammatech School · 2022–2023"
+        },
+        {
+          "title": "Bootcamp Python y Ciberseguridad",
+          "detail": "FP Euroformac · 2023"
+        },
+        {
+          "title": "Ciclo Formativo de Grado Superior en Administración de Sistemas Informáticos (ASI)",
+          "detail": "Aproximadamente 2012"
+        },
+        {
+          "title": "Ciclo Formativo de Grado Medio en Explotación de Sistemas Informáticos (ESI)",
+          "detail": "Aproximadamente 2010"
+        }
+      ]
+    },
+    "occasional": "Uso puntual"
   },
   "projects": {
     "title": "Proyectos",
@@ -208,7 +262,7 @@
     "subtitle": "Hablemos sobre tu proyecto",
     "emailLabel": "Email",
     "locationLabel": "Ubicación",
-    "locationValue": "España · Remoto",
+    "locationValue": "Madrid, España · Remoto",
     "responseLabel": "Respuesta",
     "responseValue": "Normalmente en 24h",
     "name": "Tu nombre",

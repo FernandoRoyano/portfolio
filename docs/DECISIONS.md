@@ -246,3 +246,8 @@ este tamaño no aprieta.
 **Restos ya eliminados:** `reportWebVitals` (se llamaba sin callback, así que su
 `import('web-vitals')` no se disparaba nunca), `App.css`, `logo.svg`, el
 `App.test.js` de fábrica y la dependencia `aos`, instalada y jamás importada.
+
+
+## 8. Rediseño del portfolio (22/10/2026)
+
+Se conserva React y GSAP. Portada con retícula e iluminación, retrato enmarcado, navegación flotante y proyectos escalonados. Referencias: sanidhyy/next-portfolio y ayush013/folio (consultadas el 22/10/2026); implementación propia, sin copiar código ni activos. El movimiento respeta prefers-reduced-motion. React, Next.js, TypeScript y Supabase mantienen el protagonismo; Python, Azure y automatización se describen como uso puntual. Los módulos de DAW se contrastaron con el RD 405/2023: https://www.boe.es/eli/es/rd/2023/05/29/405. El CV se mantiene en public/cv.pdf y su fuente editable en scripts/build_cv.py (requiere ReportLab).

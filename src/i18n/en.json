@@ -15,7 +15,7 @@
     "talk": "Let's talk",
     "portraitAlt": "Fernando Royano in his workspace",
     "portraitNote": "Fernando Royano",
-    "portraitPlace": "Cantabria · working remotely",
+    "portraitPlace": "Madrid · working remotely",
     "scroll": "Meet me",
     "scrollAria": "Scroll down to learn how I work",
     "proofAria": "Areas of work",
@@ -75,9 +75,18 @@
     "working": {
       "label": "How I work",
       "title": "Judgement before noise.",
-      "understand": { "title": "Understand", "copy": "I listen, organise the context and identify the problem that is truly worth solving." },
-      "decide": { "title": "Decide", "copy": "I connect product, people and business to choose a clear and realistic path." },
-      "build": { "title": "Build", "copy": "I design, develop, test and finish. The idea becomes something people can use." }
+      "understand": {
+        "title": "Understand",
+        "copy": "I listen, organise the context and identify the problem that is truly worth solving."
+      },
+      "decide": {
+        "title": "Decide",
+        "copy": "I connect product, people and business to choose a clear and realistic path."
+      },
+      "build": {
+        "title": "Build",
+        "copy": "I design, develop, test and finish. The idea becomes something people can use."
+      }
     },
     "human": {
       "label": "Behind the work",
@@ -137,16 +146,61 @@
           "place": "IES María Inmaculada"
         }
       ]
+    },
+    "stack": {
+      "build": "My core stack",
+      "connect": "From idea to product"
     }
   },
   "skills": {
     "title": "Stack",
-    "subtitle": "The tools I work with every day",
+    "subtitle": "My development foundation and the tools I use according to each project’s needs.",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
       "ai-tools": "AI & Tools"
-    }
+    },
+    "eyebrow": "Technology with purpose",
+    "context": {
+      "frontend": "My everyday foundation: React, Next.js and TypeScript for complete products.",
+      "backend": "Node.js, PostgreSQL and Supabase. Python and Azure used occasionally to support specific projects.",
+      "ai-tools": "Development and integration tools chosen for the needs of each project."
+    },
+    "education": {
+      "label": "Technical education",
+      "title": "Web Application Development",
+      "intro": "The technical foundations of DAW, applied to complete products.",
+      "modules": [
+        "Programming and development environments",
+        "Databases",
+        "Markup languages and information management",
+        "Client-side and server-side web development",
+        "Web application deployment",
+        "Web interface design"
+      ],
+      "note": "Selected technical modules from the official curriculum. Final project: WellnessReal.",
+      "source": "View official curriculum",
+      "additionalTitle": "Vocational education and additional training",
+      "additional": [
+        {
+          "title": "Front-End Developer Bootcamp with React",
+          "detail": "Gammatech School · 2022–2023"
+        },
+        {
+          "title": "Python and Cybersecurity Bootcamp",
+          "detail": "FP Euroformac · 2023"
+        },
+        {
+          "title": "Higher-level Vocational Training in Computer Systems Administration (ASI)",
+          "detail": "Approximately 2012"
+        },
+        {
+          "title": "Intermediate-level Vocational Training in Computer Systems Operation (ESI)",
+          "detail": "Approximately 2010"
+        }
+      ]
+    },
+    "occasional": "Occasional use"
   },
   "projects": {
     "title": "Projects",
@@ -208,7 +262,7 @@
     "subtitle": "Let's talk about your project",
     "emailLabel": "Email",
     "locationLabel": "Location",
-    "locationValue": "Spain · Remote",
+    "locationValue": "Madrid, Spain · Remote",
     "responseLabel": "Response time",
     "responseValue": "Usually within 24h",
     "name": "Your name",

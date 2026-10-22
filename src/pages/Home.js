@@ -1,10 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { PiArrowDown, PiArrowRight, PiEnvelopeSimple } from 'react-icons/pi';
+import { PiArrowDown, PiArrowRight, PiEnvelopeSimple, PiDownloadSimple } from 'react-icons/pi';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Home.css';
 import { useTranslation } from 'react-i18next';
+
+gsap.registerPlugin(ScrollTrigger);
+
 
 const featuredProjects = [
   { id: 'amuzim', image: '/projects/amuzim.webp', tone: 'cobalt', index: '01' },
@@ -22,6 +26,9 @@ function Home() {
     if (!el) return undefined;
     const mm = gsap.matchMedia();
     mm.add('(prefers-reduced-motion: no-preference)', () => {
+      el.querySelectorAll('.reveal-section').forEach(section => {
+        gsap.fromTo(section, { y: 36, opacity: 0.25 }, { y: 0, opacity: 1, duration: 0.7, scrollTrigger: { trigger: section, start: 'top 94%', once: true }, clearProps: 'transform,opacity' });
+      });
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
       tl.fromTo(el.querySelector('.hero-kicker'), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45 })
         .fromTo(el.querySelector('.hero-title'), { opacity: 0, y: 32 }, { opacity: 1, y: 0, duration: 0.75 }, '-=0.2')
@@ -42,10 +49,16 @@ function Home() {
           <p className="hero-copy">{t('home.heroCopy')}</p>
           <div className="hero-actions">
             <a href="#selected-work" className="action-primary">{t('home.seeWork')} <PiArrowDown /></a>
-            <Link to="/contact" className="action-text">{t('home.talk')} <PiArrowRight /></Link>
+            <a href="/cv.pdf" className="action-text" target="_blank" rel="noopener noreferrer">{t('home.downloadCV')} <PiDownloadSimple /></a>
           </div>
+          <dl className="hero-stack">
+            <div><dt>{t('home.stack.build')}</dt><dd>React · Next.js · TypeScript</dd></div>
+            <div><dt>{t('home.stack.connect')}</dt><dd>Supabase · Producto · UX/UI</dd></div>
+          </dl>
         </div>
         <div className="hero-portrait">
+          <span className="portrait-orbit" aria-hidden="true" />
+          <span className="portrait-coordinate" aria-hidden="true">DESIGN / BUILD / SHIP</span>
           <div className="portrait-frame">
             <img src="/images/fernando-portrait.webp" alt={t('home.portraitAlt')} width="1122" height="1402" fetchPriority="high" />
           </div>
@@ -59,7 +72,7 @@ function Home() {
         <ul><li>{t('home.proof.product')}</li><li>{t('home.proof.design')}</li><li>{t('home.proof.code')}</li><li>{t('home.proof.ai')}</li></ul>
       </section>
 
-      <section className="perspective-section" id="perspective">
+      <section className="perspective-section reveal-section" id="perspective">
         <div className="section-label">{t('home.perspective.label')}</div>
         <div className="perspective-copy">
           <h2>{t('home.perspective.title')}</h2>
@@ -75,7 +88,7 @@ function Home() {
         </header>
         <div className="featured-list">
           {featuredProjects.map((project) => (
-            <article className="featured-project" data-tone={project.tone} key={project.id}>
+            <article className="featured-project reveal-section" data-tone={project.tone} key={project.id}>
               <a href={t(`home.work.items.${project.id}.link`)} target="_blank" rel="noopener noreferrer" className="project-visual" aria-label={t('projects.openAria', { name: t(`projects.items.${project.id}.name`) })}>
                 <span className="project-index">{project.index}</span><img src={project.image} alt="" loading="lazy" />
               </a>
@@ -95,7 +108,7 @@ function Home() {
         <div className="all-work-link"><Link to="/projects">{t('home.work.all')} <PiArrowRight /></Link></div>
       </section>
 
-      <section className="working-section">
+      <section className="working-section reveal-section">
         <div className="working-title"><p className="section-label">{t('home.working.label')}</p><h2>{t('home.working.title')}</h2></div>
         <div className="working-grid">
           {['understand', 'decide', 'build'].map((item, index) => (
@@ -104,7 +117,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="human-section">
+      <section className="human-section reveal-section">
         <p className="section-label">{t('home.human.label')}</p>
         <div className="human-layout">
           <h2>{t('home.human.title')}</h2>
